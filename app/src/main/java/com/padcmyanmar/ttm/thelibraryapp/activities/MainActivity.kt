@@ -24,19 +24,22 @@ class MainActivity : AppCompatActivity() {
 
         setCurrentFragment(homeFragment)
 
-        bottomNavigation.setOnClickListener {
-            when(it.id){
+        bottomNavigation.setOnItemSelectedListener {menuItem:MenuItem->
+            when(menuItem.itemId){
                 R.id.action_home -> setCurrentFragment(homeFragment)
                 R.id.action_library -> setCurrentFragment(libraryFragment)
             }
 
             true
         }
+
+
     }
 
     private fun setCurrentFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.flFragment,fragment)
+            add(R.id.flFragment,fragment)
+            commit()
         }
     }
 

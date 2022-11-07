@@ -26,6 +26,7 @@ class HomeFragment : Fragment() {
 
         // Inflate the layout for this fragment
      val viewFragmentHome =  inflater.inflate(R.layout.fragment_home, container, false)
+
         return viewFragmentHome.rootView
     }
 
