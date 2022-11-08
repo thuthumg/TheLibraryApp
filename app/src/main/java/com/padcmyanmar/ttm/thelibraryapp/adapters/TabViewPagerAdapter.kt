@@ -6,6 +6,10 @@ import com.padcmyanmar.ttm.thelibraryapp.fragments.AudioBooksFragment
 import com.padcmyanmar.ttm.thelibraryapp.fragments.EBooksFragment
 
 class TabViewPagerAdapter(fragment: Fragment): FragmentStateAdapter(fragment) {
+
+
+
+
     override fun getItemCount(): Int {
         return 2
     }

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
 import androidx.fragment.app.Fragment
@@ -19,26 +20,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
         val homeFragment = HomeFragment()
         val libraryFragment = LibraryFragment()
 
         setCurrentFragment(homeFragment)
 
-        bottomNavigation.setOnItemSelectedListener {menuItem:MenuItem->
-            when(menuItem.itemId){
+        bottomNavigation.setOnClickListener {
+            when(it.id){
                 R.id.action_home -> setCurrentFragment(homeFragment)
                 R.id.action_library -> setCurrentFragment(libraryFragment)
             }
 
             true
         }
-
-
     }
 
     private fun setCurrentFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
-            add(R.id.flFragment,fragment)
+            replace(R.id.flFragment,fragment)
             commit()
         }
     }
