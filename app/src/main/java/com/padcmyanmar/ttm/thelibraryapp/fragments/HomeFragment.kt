@@ -12,11 +12,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 import com.padcmyanmar.ttm.thelibraryapp.R
 import com.padcmyanmar.ttm.thelibraryapp.adapters.ReadBooksListCarouselAdapter
 import com.padcmyanmar.ttm.thelibraryapp.adapters.SampleModel
-import com.padcmyanmar.ttm.thelibraryapp.adapters.TabViewPagerAdapter
+import com.padcmyanmar.ttm.thelibraryapp.adapters.HomeTabViewPagerAdapter
 import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemContextualMenuDelegate
 import com.padcmyanmar.ttm.thelibraryapp.dummy.dummyBookTypeList
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -43,7 +42,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewPager.adapter = TabViewPagerAdapter(this)
+        viewPager.adapter = HomeTabViewPagerAdapter(this)
         viewPager.currentItem = 0
         viewPager.isUserInputEnabled = false
 
