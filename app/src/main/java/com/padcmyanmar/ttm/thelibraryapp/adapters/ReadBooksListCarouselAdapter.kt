@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.padcmyanmar.ttm.thelibraryapp.R
+import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemContextualMenuDelegate
+import kotlinx.android.synthetic.main.view_holder_read_books_list.view.*
 
 /*class BooksListCarouselAdapter :  CardSliderAdapter<BooksListCarouselViewHolder>() {
 
@@ -26,19 +28,22 @@ import com.padcmyanmar.ttm.thelibraryapp.R
 
 }*/
 
-class ReadBooksListCarouselAdapter :  CarouselAdapter() {
+class ReadBooksListCarouselAdapter(var bookItemContextualMenuDelegate:BookItemContextualMenuDelegate) :  CarouselAdapter() {
     override fun onBindViewHolder(holder: CarouselViewHolder, position: Int) {
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarouselViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.view_holder_read_books_list, parent, false)
-        return ReadBooksListCarouselViewHolder(view)
+        return ReadBooksListCarouselViewHolder(bookItemContextualMenuDelegate,view)
     }
 
 
-    inner class ReadBooksListCarouselViewHolder(itemView: View):CarouselViewHolder(itemView){
+    inner class ReadBooksListCarouselViewHolder(var bookItemContextualMenuDelegate:BookItemContextualMenuDelegate,itemView: View):CarouselViewHolder(itemView){
         init {
+            itemView.ivContextualMenuForReadBook.setOnClickListener {
+                bookItemContextualMenuDelegate.callBottomSheetDialogFun()
+            }
           //  title.setOnClickListener { onClick?.click(getItems()[adapterPosition] as SampleModel) }
         }
     }

@@ -1,54 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.HomeFragment">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
         <alirezat775.lib.carouselview.CarouselView
-            android:layout_margin="@dimen/margin_medium_2"
-            tools:itemCount="5"
-            tools:orientation="horizontal"
-            tools:listitem="@layout/view_holder_read_books_list"
             android:id="@+id/carousel_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:layout_marginBottom="@dimen/margin_medium_2"
+            android:clipToPadding="false"
+            tools:itemCount="5"
+            tools:listitem="@layout/view_holder_read_books_list"
+            tools:orientation="horizontal" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:tabBackground="@color/white"
+            app:tabGravity="fill"
             app:tabIconTint="@drawable/tab_color_selector"
             app:tabIconTintMode="src_atop"
             app:tabIndicator="@drawable/tab_indicator_bg"
-            app:tabBackground="@color/white"
             app:tabIndicatorColor="@color/bnv_tab_item_foreground"
+            app:tabIndicatorFullWidth="false"
             app:tabIndicatorGravity="bottom"
             app:tabIndicatorHeight="2dp"
-            app:tabIndicatorFullWidth="false"
-            app:tabSelectedTextColor="@color/bnv_tab_item_foreground"
-            app:tabGravity="fill"
-            app:tabMode="fixed"/>
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/bnv_tab_item_foreground" />
+
         <View
-            android:background="@color/whiteDark1"
             android:layout_width="match_parent"
-            android:layout_height="1dp"/>
+            android:layout_height="1dp"
+            android:background="@color/whiteDark1" />
+
         <androidx.viewpager2.widget.ViewPager2
-            android:layout_marginTop="@dimen/margin_medium_2"
+
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-
-
-
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_medium_2" />
 
     </LinearLayout>
 

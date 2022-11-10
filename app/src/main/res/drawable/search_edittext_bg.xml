@@ -5,8 +5,5 @@
     android:shape="rectangle">
 
     <solid android:color="@color/white"/>
-    <padding android:bottom="@dimen/margin_medium"
-        android:top="@dimen/margin_medium"
-        android:left="@dimen/margin_medium"
-        android:right="@dimen/margin_medium"/>
+
 </shape>
