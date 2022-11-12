@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:padding = "@dimen/margin_medium_2"
+            android:id="@+id/tvBookTitle"
+            android:text="View As"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_regular_3x"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <View
+        android:background="@color/whiteDark5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+        <RadioGroup
+            android:id="@+id/rbViewGroup"
+            android:padding="@dimen/margin_medium_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton
+                android:padding="@dimen/margin_medium_3"
+                android:checked="false"
+                android:id="@+id/rbList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_view_list"/>
+            <RadioButton
+                android:padding="@dimen/margin_medium_3"
+                android:checked="false"
+                android:id="@+id/rbLargeGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_large_grid_list"/>
+            <RadioButton
+                android:padding="@dimen/margin_medium_3"
+                android:checked="false"
+                android:id="@+id/rbSmallGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_small_grid_list"/>
+        </RadioGroup>
+
+
+</LinearLayout>

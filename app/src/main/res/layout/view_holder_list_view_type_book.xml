@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_card_medium"
+    android:padding="@dimen/margin_medium"
+    android:orientation="horizontal">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/margin_medium_2">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBookCoverPhoto"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sample_book_cover" />
+
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:visibility="gone"
+            android:id="@+id/tvSample"
+            android:background="@drawable/tv_sample_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_margin="@dimen/margin_small"
+            android:textSize="@dimen/text_regular"
+            android:textColor="@color/white"
+            android:text="Sample" />
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Advanced Android App Architecture"
+            android:textColor="@color/whiteDark9"
+            android:textSize="@dimen/text_regular_2x"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Yun Cheng,Aldo Olivares"
+            android:textColor="@color/whiteDark9"
+            android:textSize="@dimen/text_regular_2x"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!--audio-->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:visibility="gone"
+        android:id="@+id/ivAudio"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_margin="@dimen/margin_small"
+        android:src="@drawable/ic_baseline_audio_24" />
+
+    <!--download-->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_gravity="center_horizontal"
+        android:visibility="visible"
+        android:id="@+id/ivDownload"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:padding="@dimen/margin_small"
+        android:layout_margin="@dimen/margin_medium"
+        android:src="@drawable/ic_download_gray_64" />
+
+    <!--read-->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"
+        android:id="@+id/ivReadBook"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:padding="@dimen/margin_small"
+        android:layout_margin="@dimen/margin_medium"
+        android:src="@drawable/ic_check_gray_64" />
+
+
+    <!--more-->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivContextualMenu"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:padding="@dimen/margin_small"
+        android:layout_margin="@dimen/margin_medium"
+        android:src="@drawable/ic_more_gray_64" />
+
+</LinearLayout>
+

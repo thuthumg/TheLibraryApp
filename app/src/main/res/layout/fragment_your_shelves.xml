@@ -3,12 +3,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.YourShelvesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNoShelves"
+
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_heading_1x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No shelves" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCreateShelves"
+
+
+            android:textColor="@color/whiteDark10"
+            android:textSize="@dimen/text_regular_2x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create shelves to match the way you think." />
+
+
+    </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvCreateNew"
+        android:layout_margin="@dimen/margin_medium"
+        android:clipToPadding="true"
+        app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="@color/create_shelves_btn_color"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="@dimen/margin_card_medium"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:paddingStart="@dimen/margin_card_medium"
+                android:src="@drawable/ic_baseline_edit_24"
+                android:layout_width="25dp"
+                android:layout_height="25dp"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:paddingEnd="@dimen/margin_card_medium_2"
+                android:paddingStart="@dimen/margin_small"
+                android:layout_gravity="center"
+                android:text="Create New"
+                android:textSize="@dimen/text_regular"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
 
 </FrameLayout>

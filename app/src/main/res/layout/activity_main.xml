@@ -47,31 +47,15 @@
                 app:civ_border_color="#FF000000"
                 app:civ_border_width="1dp" />
         </LinearLayout>
-        <!-- <com.google.android.material.appbar.MaterialToolbar
-             android:id="@+id/toolBar"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             app:title="Search Play Books"
-             app:titleCentered="true"
-             app:titleTextColor="@color/white" >
-
-         </com.google.android.material.appbar.MaterialToolbar>-->
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.core.widget.NestedScrollView
-
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/margin_medium_2"
-        android:layout_marginBottom="?attr/actionBarSize"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-
-        <FrameLayout
+    <FrameLayout
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:layout_marginBottom="?attr/actionBarSize"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
             android:id="@+id/flFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
-    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"

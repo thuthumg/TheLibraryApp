@@ -1,7 +1,7 @@
 package com.padcmyanmar.ttm.thelibraryapp.delegates
 
-interface BookItemContextualMenuDelegate {
+interface BookItemDelegate {
 
-    fun callBottomSheetDialogFun()
+    fun callContextualMenuBottomSheetDialogFun()
     fun callMoreFunc()
 }

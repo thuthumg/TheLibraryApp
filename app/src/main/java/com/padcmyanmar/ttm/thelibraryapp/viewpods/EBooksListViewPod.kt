@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.padcmyanmar.ttm.thelibraryapp.adapters.EBooksListAdapter
-import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemContextualMenuDelegate
+import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemDelegate
 import kotlinx.android.synthetic.main.view_pod_ebook_list.view.*
 
 
@@ -14,12 +14,12 @@ class EBooksListViewPod @JvmOverloads constructor(
 ) : FrameLayout(context, attrs){
 
     private lateinit var mEBooksListAdapter: EBooksListAdapter
-    lateinit var mDelegate: BookItemContextualMenuDelegate
+    lateinit var mDelegate: BookItemDelegate
     override fun onFinishInflate() {
         super.onFinishInflate()
     }
 
-    private fun setUpEBooksListAdapter(delegate: BookItemContextualMenuDelegate) {
+    private fun setUpEBooksListAdapter(delegate: BookItemDelegate) {
         mEBooksListAdapter = EBooksListAdapter(delegate)
         rvEBooksItemList.adapter = mEBooksListAdapter
         rvEBooksItemList.layoutManager = LinearLayoutManager(
@@ -31,12 +31,12 @@ class EBooksListViewPod @JvmOverloads constructor(
 
     }
 
-    fun setData(delegate: BookItemContextualMenuDelegate,audioOrEbooks:Boolean){
+    fun setData(delegate: BookItemDelegate, audioOrEbooks:Boolean){
         setDelegate(delegate)
         setUpEBooksListAdapter( this.mDelegate )
         mEBooksListAdapter.checkAudioOrEbooks(audioOrEbooks)
     }
-    private fun setDelegate(delegate: BookItemContextualMenuDelegate) {
+    private fun setDelegate(delegate: BookItemDelegate) {
         this.mDelegate = delegate
     }
 

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:padding = "@dimen/margin_medium_2"
+        android:id="@+id/tvBookTitle"
+        android:text="Sort By"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_regular_3x"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:background="@color/whiteDark5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <RadioGroup
+        android:id="@+id/rbSortByGroup"
+        android:padding="@dimen/margin_medium_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RadioButton
+            android:padding="@dimen/margin_medium_3"
+            android:checked="false"
+            android:id="@+id/rbRecentlyOpened"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_recently_opened_type"/>
+        <RadioButton
+            android:padding="@dimen/margin_medium_3"
+            android:checked="false"
+            android:id="@+id/rbTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_title_type"/>
+        <RadioButton
+            android:padding="@dimen/margin_medium_3"
+            android:checked="false"
+            android:id="@+id/rbAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_author_type"/>
+    </RadioGroup>
+
+
+</LinearLayout>

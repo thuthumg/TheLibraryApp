@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".activities.CreateShelfActivity">
+
+
+<com.google.android.material.appbar.AppBarLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:textColor="@color/whiteDark10"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_regular_3x"
+            android:text="Create Shelf"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </androidx.appcompat.widget.Toolbar>
+
+</com.google.android.material.appbar.AppBarLayout>
+
+<FrameLayout
+    android:layout_marginTop="@dimen/margin_medium_2"
+    android:layout_marginBottom="?attr/actionBarSize"
+    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtInputLayoutShelf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_medium_2"
+        android:background="@android:color/transparent"
+        app:boxBackgroundColor="@android:color/transparent"
+        app:endIconMode="clear_text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:imeOptions="actionDone"
+            android:id="@+id/txtInputEditTextShelf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Shelf Name"
+            android:text=""
+            android:textColor="@color/blackLight4"
+            android:textColorHint="@color/blackLight4"
+            android:textSize="@dimen/text_regular_3x" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_gravity="bottom|center_horizontal"
+        android:id="@+id/cvDone"
+        android:layout_margin="@dimen/margin_medium"
+        android:clipToPadding="true"
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/create_shelves_btn_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_gravity="center"
+            android:text="Done"
+            android:textSize="@dimen/text_regular"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -4,6 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.padcmyanmar.ttm.thelibraryapp.fragments.AudioBooksFragment
 import com.padcmyanmar.ttm.thelibraryapp.fragments.EBooksFragment
+import com.padcmyanmar.ttm.thelibraryapp.fragments.YourBooksFragment
+import com.padcmyanmar.ttm.thelibraryapp.fragments.YourShelvesFragment
 
 class LibraryTabViewPagerAdapter (fragment: Fragment): FragmentStateAdapter(fragment) {
 
@@ -13,11 +15,11 @@ class LibraryTabViewPagerAdapter (fragment: Fragment): FragmentStateAdapter(frag
 
     override fun createFragment(position: Int): Fragment {
         when (position) {
-            0-> return EBooksFragment()
-            1-> return AudioBooksFragment()
+            0-> return YourBooksFragment()
+            1-> return YourShelvesFragment()
 
         }
-        return EBooksFragment()
+        return YourBooksFragment()
 
     }
 

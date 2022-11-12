@@ -8,32 +8,34 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.padcmyanmar.ttm.thelibraryapp.R
-import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemContextualMenuDelegate
-import com.padcmyanmar.ttm.thelibraryapp.fragments.BookItemBottomSheetDialogFragment
+import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemDelegate
+import com.padcmyanmar.ttm.thelibraryapp.delegates.SortAndViewAsDelegate
+import com.padcmyanmar.ttm.thelibraryapp.fragments.bottomSheetDialog.BookItemBottomSheetDialogFragment
 import com.padcmyanmar.ttm.thelibraryapp.fragments.HomeFragment
 import com.padcmyanmar.ttm.thelibraryapp.fragments.LibraryFragment
+import com.padcmyanmar.ttm.thelibraryapp.fragments.bottomSheetDialog.ViewAsBottomSheetDialogFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.view_holder_unread_books_list.view.*
 
 
-class MainActivity : AppCompatActivity(),BookItemContextualMenuDelegate {
+class MainActivity : AppCompatActivity(),BookItemDelegate{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-     //   val homeFragment = HomeFragment()
-     //   val libraryFragment = LibraryFragment()
+        setUpBottomNavUI()
 
-      //  setCurrentFragment(homeFragment)
 
+    }
+
+    private fun setUpBottomNavUI() {
         val fragment = HomeFragment()
         supportFragmentManager.beginTransaction().replace(R.id.flFragment, fragment, fragment.javaClass.simpleName)
             .commit()
 
         bottomNavigation.setOnItemSelectedListener {
-            Log.d("mainact","check fragment item selected")
+
             when(it.itemId){
                 R.id.action_home -> {
                     val fragment = HomeFragment()
@@ -55,18 +57,9 @@ class MainActivity : AppCompatActivity(),BookItemContextualMenuDelegate {
             false
 
         }
-
     }
 
-    private fun setCurrentFragment(fragment: Fragment) {
-        Log.d("mainact","check fragment ${fragment.id}")
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.flFragment,fragment)
-            commit()
-        }
-    }
-
-    override fun callBottomSheetDialogFun() {
+    override fun callContextualMenuBottomSheetDialogFun() {
        val customButtonSheet = BookItemBottomSheetDialogFragment()
         customButtonSheet.show(supportFragmentManager,"modalSheetDialog")
     }
@@ -74,5 +67,8 @@ class MainActivity : AppCompatActivity(),BookItemContextualMenuDelegate {
     override fun callMoreFunc() {
         startActivity(Intent(this,BooksListMoreActivity::class.java))
     }
+
+
+
 
 }

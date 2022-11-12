@@ -4,6 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.padcmyanmar.ttm.thelibraryapp.fragments.AudioBooksFragment
 import com.padcmyanmar.ttm.thelibraryapp.fragments.EBooksFragment
+import com.padcmyanmar.ttm.thelibraryapp.fragments.YourBooksFragment
+import com.padcmyanmar.ttm.thelibraryapp.fragments.YourShelvesFragment
 
 class HomeTabViewPagerAdapter(fragment: Fragment): FragmentStateAdapter(fragment) {
 

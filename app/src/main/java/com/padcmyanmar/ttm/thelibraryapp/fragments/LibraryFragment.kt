@@ -1,5 +1,6 @@
 package com.padcmyanmar.ttm.thelibraryapp.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,13 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
 import com.padcmyanmar.ttm.thelibraryapp.R
-import com.padcmyanmar.ttm.thelibraryapp.adapters.HomeTabViewPagerAdapter
+import com.padcmyanmar.ttm.thelibraryapp.adapters.LibraryTabViewPagerAdapter
+import com.padcmyanmar.ttm.thelibraryapp.delegates.SortAndViewAsDelegate
 import com.padcmyanmar.ttm.thelibraryapp.dummy.dummyBookTypeListOfUser
 import kotlinx.android.synthetic.main.fragment_library.*
 
 
 class LibraryFragment : Fragment() {
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,13 +25,19 @@ class LibraryFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewPager.adapter = HomeTabViewPagerAdapter(this)
-        viewPager.currentItem = 0
-        viewPager.isUserInputEnabled = false
+
+        setUpViewPager()
         setUpBooksTypeTabLayout()
         setUpClickListener()
 
     }
+
+    private fun setUpViewPager() {
+        viewPager.adapter = LibraryTabViewPagerAdapter(this)
+        viewPager.currentItem = 0
+        viewPager.isUserInputEnabled = false
+    }
+
     private fun setUpBooksTypeTabLayout() {
         dummyBookTypeListOfUser.forEach {
             tlForBooksAndShelves.newTab().apply {

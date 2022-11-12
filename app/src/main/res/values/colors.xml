@@ -62,6 +62,9 @@
     <color name="blue_accent">#80d8ff</color>
     <color name="purple">#866CEF</color>
 
+    <color name="chip_selected_color">#4E57AA</color>
+    <color name="chip_unselected_color">@color/light_gray</color>
+    <color name="create_shelves_btn_color">#5F6ACF</color>
 
 
 </resources>

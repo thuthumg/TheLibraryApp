@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.padcmyanmar.ttm.thelibraryapp.R
-import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemContextualMenuDelegate
+import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemDelegate
 import com.padcmyanmar.ttm.thelibraryapp.viewholders.EBooksListViewHolder
 
-class EBooksListAdapter(var bookItemContextualMenuDelegate: BookItemContextualMenuDelegate): RecyclerView.Adapter<EBooksListViewHolder>() {
+class EBooksListAdapter(var bookItemDelegate: BookItemDelegate): RecyclerView.Adapter<EBooksListViewHolder>() {
 
     private var checkAudioOrEbooksFlag:Boolean = false
     @SuppressLint("SuspiciousIndentation")
@@ -18,7 +18,7 @@ class EBooksListAdapter(var bookItemContextualMenuDelegate: BookItemContextualMe
                 R.layout.view_holder_ebooks_list,
                 parent,false)
 
-        return EBooksListViewHolder(bookItemContextualMenuDelegate,view)
+        return EBooksListViewHolder(bookItemDelegate,view)
     }
 
     override fun onBindViewHolder(holder: EBooksListViewHolder, position: Int) {

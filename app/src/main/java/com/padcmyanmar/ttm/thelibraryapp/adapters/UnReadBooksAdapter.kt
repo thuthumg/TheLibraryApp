@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.padcmyanmar.ttm.thelibraryapp.R
-import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemContextualMenuDelegate
+import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemDelegate
 import com.padcmyanmar.ttm.thelibraryapp.viewholders.UnReadBooksViewHolder
 
-class UnReadBooksAdapter(var bookItemContextualMenuDelegate: BookItemContextualMenuDelegate,
+class UnReadBooksAdapter(var bookItemDelegate: BookItemDelegate,
                          var checkAudioOrEbooksFlagParam: Boolean) : RecyclerView.Adapter<UnReadBooksViewHolder>() {
 
     private var checkAudioOrEbooksFlag:Boolean = false
@@ -18,15 +18,12 @@ class UnReadBooksAdapter(var bookItemContextualMenuDelegate: BookItemContextualM
           LayoutInflater.from(parent.context).inflate(R.layout.view_holder_unread_books_list,
               parent,false)
 
-        return UnReadBooksViewHolder(bookItemContextualMenuDelegate,view)
+        return UnReadBooksViewHolder(bookItemDelegate,view)
     }
 
     override fun onBindViewHolder(holder: UnReadBooksViewHolder, position: Int) {
         checkAudioOrEbooksFlag = checkAudioOrEbooksFlagParam
         holder.bindData(checkAudioOrEbooksFlag)
-    }
-    fun checkAudioOrEbooks(checkAudioOrEbooksFlagParam:Boolean){
-        checkAudioOrEbooksFlag = checkAudioOrEbooksFlagParam
     }
     override fun getItemCount(): Int {
         return 10

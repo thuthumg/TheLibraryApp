@@ -2,4 +2,11 @@
     <string name="app_name">TheLibraryApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lbl_view_list">List</string>
+    <string name="lbl_large_grid_list">Large grid</string>
+    <string name="lbl_small_grid_list">Small grid</string>
+    <string name="lbl_recently_opened_type">Recently opened</string>
+    <string name="lbl_title_type">Title</string>
+    <string name="lbl_author_type">Author</string>
+    <string name="lbl_sort_by">Sort by: %1s</string>
 </resources>

@@ -4,19 +4,18 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.padcmyanmar.ttm.thelibraryapp.adapters.UnReadBooksAdapter
-import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemContextualMenuDelegate
+import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemDelegate
 import kotlinx.android.synthetic.main.view_holder_ebooks_list.view.*
-import kotlinx.android.synthetic.main.view_holder_unread_books_list.view.*
 
 
-class EBooksListViewHolder(var bookItemContextualMenuDelegate: BookItemContextualMenuDelegate,itemView: View) : RecyclerView.ViewHolder(itemView) {
+class EBooksListViewHolder(var bookItemDelegate: BookItemDelegate, itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     lateinit var mUnReadBooksAdapter: UnReadBooksAdapter
     private var checkAudioOrEbooksFlag:Boolean = false
 
     init {
         itemView.llMore.setOnClickListener{
-            bookItemContextualMenuDelegate.callMoreFunc()
+            bookItemDelegate.callMoreFunc()
         }
     }
 
@@ -26,7 +25,7 @@ class EBooksListViewHolder(var bookItemContextualMenuDelegate: BookItemContextua
     }
 
     private fun setUpEBookItemRecyclerView(checkAudioOrEbooksFlag: Boolean) {
-        mUnReadBooksAdapter = UnReadBooksAdapter(bookItemContextualMenuDelegate,checkAudioOrEbooksFlag)
+        mUnReadBooksAdapter = UnReadBooksAdapter(bookItemDelegate,checkAudioOrEbooksFlag)
         itemView.rvUnReadBooksItemList.adapter = mUnReadBooksAdapter
         itemView.rvUnReadBooksItemList.layoutManager = LinearLayoutManager(
             itemView.context,
