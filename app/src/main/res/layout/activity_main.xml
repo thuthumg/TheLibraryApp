@@ -6,51 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
-
     <com.google.android.material.appbar.AppBarLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_margin="@dimen/margin_card_medium_2"
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBarSearch"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:layout_marginEnd="@dimen/margin_medium_2"
             android:background="@drawable/search_bar_bg"
-            android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_baseline_search_24" />
+                app:srcCompat="@drawable/ic_baseline_search_24" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:background="@drawable/search_edittext_bg"
-                android:gravity="center_vertical"
+            <androidx.appcompat.widget.AppCompatTextView
+                android:paddingStart="@dimen/margin_small"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/whiteDark10"
+                android:textSize="18sp"
                 android:text="Search Play Books"
-                android:textColor="@color/whiteDark9"
-                android:textSize="@dimen/text_regular_2x" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_marginEnd="@dimen/margin_medium"
                 android:id="@+id/profile_image"
-                android:layout_width="50dp"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="@dimen/margin_small"
+                android:layout_gravity="end"
                 android:src="@drawable/sample_profile"
                 app:civ_border_color="#FF000000"
                 app:civ_border_width="1dp" />
-        </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <FrameLayout
-            android:layout_marginTop="@dimen/margin_medium_2"
             android:layout_marginBottom="?attr/actionBarSize"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
             android:id="@+id/flFragment"

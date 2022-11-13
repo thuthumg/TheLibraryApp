@@ -75,6 +75,7 @@ tools:context=".activities.CreateShelfActivity">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <androidx.appcompat.widget.AppCompatTextView
+
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             android:paddingTop="10dp"

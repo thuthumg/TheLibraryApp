@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_card_medium"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+        android:id="@+id/cvBookCover"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/margin_medium_2">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivBookCoverPhoto"
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
             android:scaleType="centerCrop"
             android:src="@drawable/sample_book_cover" />
 
@@ -76,23 +77,25 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:fontFamily="sans-serif"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="Advanced Android App Architecture"
-        android:textColor="@color/whiteDark9"
-        android:textSize="@dimen/text_regular_2x"
+        android:textColor="@color/whiteDark10"
+        android:textSize="@dimen/text_regular"
         android:textStyle="bold" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:fontFamily="sans-serif"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="Yun Cheng,Aldo Olivares"
-        android:textColor="@color/whiteDark9"
-        android:textSize="@dimen/text_regular_2x"
+        android:textColor="@color/whiteDark10"
+        android:textSize="@dimen/text_regular"
         android:textStyle="bold" />
 </LinearLayout>
 

@@ -4,4 +4,8 @@ interface BookItemDelegate {
 
     fun callContextualMenuBottomSheetDialogFun()
     fun callMoreFunc()
+
+    fun callBookDetailPage()
+
+
 }

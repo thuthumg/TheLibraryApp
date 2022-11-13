@@ -4,30 +4,31 @@ import alirezat775.lib.carouselview.Carousel
 import alirezat775.lib.carouselview.CarouselListener
 import alirezat775.lib.carouselview.CarouselView
 import android.annotation.SuppressLint
-import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayout
 import com.padcmyanmar.ttm.thelibraryapp.R
+import com.padcmyanmar.ttm.thelibraryapp.activities.BooksAndAudioDetailViewActivity
+import com.padcmyanmar.ttm.thelibraryapp.activities.EachCategoryBookListActivity
+import com.padcmyanmar.ttm.thelibraryapp.adapters.EBooksAndAudioBooksListAdapter
 import com.padcmyanmar.ttm.thelibraryapp.adapters.ReadBooksListCarouselAdapter
 import com.padcmyanmar.ttm.thelibraryapp.adapters.SampleModel
-import com.padcmyanmar.ttm.thelibraryapp.adapters.HomeTabViewPagerAdapter
+
+import com.padcmyanmar.ttm.thelibraryapp.bottomSheetDialog.BookItemBottomSheetDialogFragment
 import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemDelegate
 import com.padcmyanmar.ttm.thelibraryapp.dummy.dummyBookTypeList
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.view_pod_ebook_list.view.*
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(),BookItemDelegate{
 
-    var bookItemDelegate:BookItemDelegate?= null
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        bookItemDelegate = context as BookItemDelegate
-    }
+    private lateinit var mEBooksAndAudioBooksListAdapter: EBooksAndAudioBooksListAdapter
 
     @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
@@ -43,22 +44,32 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpViewPager()
+       // setUpViewPager()
         //book type
         setUpBooksTypeTabLayout()
 
         //read book list
         setUpCarouselView()
 
+        //ForEbooks And AudioBooks View
+        setUpRecyclerView()
         setUpClickListener()
 
     }
 
-    private fun setUpViewPager() {
-        viewPager.adapter = HomeTabViewPagerAdapter(this)
-        viewPager.currentItem = 0
-        viewPager.isUserInputEnabled = false
+    private fun setUpRecyclerView() {
+
+        mEBooksAndAudioBooksListAdapter = EBooksAndAudioBooksListAdapter(this)
+        rvEBooksAndAudioBooksList.adapter = mEBooksAndAudioBooksListAdapter
+        rvEBooksAndAudioBooksList.layoutManager = LinearLayoutManager(
+            context,
+            LinearLayoutManager.VERTICAL, false        )
+
+        rvEBooksAndAudioBooksList.isNestedScrollingEnabled = false
+
+        rvEBooksAndAudioBooksList.visibility = View.VISIBLE
     }
+
     private fun setUpBooksTypeTabLayout() {
         dummyBookTypeList.forEach {
             tabs.newTab().apply {
@@ -74,9 +85,15 @@ class HomeFragment : Fragment() {
                 dummyBookTypeList?.getOrNull(tab?.position ?: 0)?.let {
                     when(tab?.position)
                     {
-                        0 -> viewPager.currentItem = 0
-                        1 -> viewPager.currentItem = 2
-                        else -> viewPager.currentItem = 0
+                        0 -> {
+                            rvEBooksAndAudioBooksList.visibility = View.VISIBLE
+                        }
+                        1 -> {
+                            rvEBooksAndAudioBooksList.visibility = View.GONE
+                        }
+                        else -> {
+                            rvEBooksAndAudioBooksList.visibility = View.VISIBLE
+                        }
                     }
                 }
             }
@@ -91,8 +108,8 @@ class HomeFragment : Fragment() {
 
     private fun setUpCarouselView() {
 
-        bookItemDelegate?.let {
-            val adapter = ReadBooksListCarouselAdapter(it)
+      //  bookItemDelegate?.let {
+            val adapter = ReadBooksListCarouselAdapter(this)
             val carousel = Carousel(context as AppCompatActivity, carousel_view, adapter)
             carousel.setOrientation(CarouselView.HORIZONTAL, false)
             // carousel.autoScroll(true, 5000, true)
@@ -117,12 +134,27 @@ class HomeFragment : Fragment() {
             carousel.add(SampleModel(8))
             carousel.add(SampleModel(9))
             carousel.add(SampleModel(10))
-        }
+      //  }
 
 
 
 
     }
 
+
+    override fun callContextualMenuBottomSheetDialogFun() {
+        val customButtonSheet = BookItemBottomSheetDialogFragment()
+        customButtonSheet.show(requireActivity().supportFragmentManager,"modalSheetDialog")
+
+    }
+
+    override fun callMoreFunc() {
+        startActivity(Intent(context, EachCategoryBookListActivity::class.java))
+
+    }
+
+    override fun callBookDetailPage() {
+        startActivity(Intent(context, BooksAndAudioDetailViewActivity::class.java))
+    }
 }
 

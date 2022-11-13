@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SearchActivity">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnBackSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search Play Books"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:textSize="@dimen/text_regular_2x"
+                    android:textStyle="bold"
+                    android:textColor="@color/whiteDark10"
+                    android:textColorHint="@color/whiteDark10"
+                    android:background="@drawable/edit_text_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+<!--            <androidx.appcompat.widget.AppCompatEditText-->
+
+<!--           android:textSize="@dimen/text_regular_2x"-->
+<!--           android:textStyle="bold"-->
+<!--           android:textColor="@color/whiteDark10"-->
+<!--           android:textColorHint="@color/whiteDark10"-->
+<!--           android:background="@drawable/edit_text_bg"-->
+<!--           android:hint="Search Play Books"-->
+<!--           android:layout_width="match_parent"-->
+<!--           android:layout_height="wrap_content"/>-->
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabBackground="@color/white"
+                app:tabGravity="fill"
+                app:tabIconTint="@drawable/tab_color_selector"
+                app:tabIconTintMode="src_atop"
+                app:tabIndicator="@drawable/tab_indicator_bg"
+                app:tabIndicatorColor="@color/bnv_tab_item_foreground"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorGravity="bottom"
+                app:tabIndicatorHeight="2dp"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@color/bnv_tab_item_foreground" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/whiteDark1" />
+
+           <androidx.recyclerview.widget.RecyclerView
+               android:visibility="gone"
+               android:id="@+id/rvEbookGooglePlayBook"
+               tools:listitem="@layout/view_holder_google_play_book"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="gone"
+                android:id="@+id/rvAudiobookGooglePlayBook"
+                tools:listitem="@layout/view_holder_google_play_book"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

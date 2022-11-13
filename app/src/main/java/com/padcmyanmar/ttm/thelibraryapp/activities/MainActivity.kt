@@ -10,14 +10,14 @@ import androidx.fragment.app.Fragment
 import com.padcmyanmar.ttm.thelibraryapp.R
 import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemDelegate
 import com.padcmyanmar.ttm.thelibraryapp.delegates.SortAndViewAsDelegate
-import com.padcmyanmar.ttm.thelibraryapp.fragments.bottomSheetDialog.BookItemBottomSheetDialogFragment
+import com.padcmyanmar.ttm.thelibraryapp.bottomSheetDialog.BookItemBottomSheetDialogFragment
 import com.padcmyanmar.ttm.thelibraryapp.fragments.HomeFragment
 import com.padcmyanmar.ttm.thelibraryapp.fragments.LibraryFragment
-import com.padcmyanmar.ttm.thelibraryapp.fragments.bottomSheetDialog.ViewAsBottomSheetDialogFragment
+import com.padcmyanmar.ttm.thelibraryapp.bottomSheetDialog.ViewAsBottomSheetDialogFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity(),BookItemDelegate{
+class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -25,8 +25,14 @@ class MainActivity : AppCompatActivity(),BookItemDelegate{
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         setUpBottomNavUI()
+        clickListener()
 
+    }
 
+    private fun clickListener() {
+        toolBarSearch.setOnClickListener {
+            startActivity(Intent(this,SearchActivity::class.java))
+        }
     }
 
     private fun setUpBottomNavUI() {
@@ -59,14 +65,14 @@ class MainActivity : AppCompatActivity(),BookItemDelegate{
         }
     }
 
-    override fun callContextualMenuBottomSheetDialogFun() {
-       val customButtonSheet = BookItemBottomSheetDialogFragment()
-        customButtonSheet.show(supportFragmentManager,"modalSheetDialog")
-    }
+//    override fun callContextualMenuBottomSheetDialogFun() {
+//       val customButtonSheet = BookItemBottomSheetDialogFragment()
+//        customButtonSheet.show(supportFragmentManager,"modalSheetDialog")
+//    }
 
-    override fun callMoreFunc() {
-        startActivity(Intent(this,BooksListMoreActivity::class.java))
-    }
+//    override fun callMoreFunc() {
+//        startActivity(Intent(this,BooksListMoreActivity::class.java))
+//    }
 
 
 

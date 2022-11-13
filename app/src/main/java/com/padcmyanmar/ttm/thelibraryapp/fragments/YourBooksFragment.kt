@@ -1,29 +1,31 @@
 package com.padcmyanmar.ttm.thelibraryapp.fragments
 
-import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.padcmyanmar.ttm.thelibraryapp.R
+import com.padcmyanmar.ttm.thelibraryapp.activities.BooksAndAudioDetailViewActivity
 import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemDelegate
 import com.padcmyanmar.ttm.thelibraryapp.delegates.SortAndViewAsDelegate
-import com.padcmyanmar.ttm.thelibraryapp.fragments.bottomSheetDialog.SortByBottomSheetDialogFragment
-import com.padcmyanmar.ttm.thelibraryapp.fragments.bottomSheetDialog.ViewAsBottomSheetDialogFragment
+import com.padcmyanmar.ttm.thelibraryapp.bottomSheetDialog.SortByBottomSheetDialogFragment
+import com.padcmyanmar.ttm.thelibraryapp.bottomSheetDialog.SortedBookItemBottomSheetDialogFragment
+import com.padcmyanmar.ttm.thelibraryapp.bottomSheetDialog.ViewAsBottomSheetDialogFragment
 
 import com.padcmyanmar.ttm.thelibraryapp.viewpods.FilterAndSortBookListViewPod
 import kotlinx.android.synthetic.main.fragment_your_books.*
 
 
-class YourBooksFragment : Fragment(), SortAndViewAsDelegate {
+class YourBooksFragment : Fragment(),BookItemDelegate, SortAndViewAsDelegate {
     lateinit var mFilterAndSortBookListViewPod: FilterAndSortBookListViewPod
-    var bookItemDelegate: BookItemDelegate? = null
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        bookItemDelegate = context as BookItemDelegate
-    }
+//    var bookItemDelegate: BookItemDelegate? = null
+//
+//    override fun onAttach(context: Context) {
+//        super.onAttach(context)
+//        bookItemDelegate = context as BookItemDelegate
+//    }
 
 
     override fun onCreateView(
@@ -42,9 +44,8 @@ class YourBooksFragment : Fragment(), SortAndViewAsDelegate {
 
     private fun setUpViewPods() {
         mFilterAndSortBookListViewPod = vpFilterAndSortBookList as FilterAndSortBookListViewPod
-        bookItemDelegate?.let {
-            mFilterAndSortBookListViewPod.setData(this,it)
-        }
+        mFilterAndSortBookListViewPod.setData(this,this)
+
 
     }
     override fun callbackViewAsFunc(checkedViewAsRadioButtonText: String) {
@@ -95,5 +96,18 @@ class YourBooksFragment : Fragment(), SortAndViewAsDelegate {
         sortByBottomSheet.show(requireActivity().supportFragmentManager, "modalSheetDialog")
     }
 
+    override fun callContextualMenuBottomSheetDialogFun() {
+        val customButtonSheet = SortedBookItemBottomSheetDialogFragment()
+        customButtonSheet.show(requireActivity().supportFragmentManager,"modalSheetDialog")
 
+    }
+
+    override fun callMoreFunc() {
+
+    }
+
+
+    override fun callBookDetailPage() {
+        startActivity(Intent(context, BooksAndAudioDetailViewActivity::class.java))
+    }
 }

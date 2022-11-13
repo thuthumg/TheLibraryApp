@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AboutBookActivity">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnBackAboutBook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:paddingStart="@dimen/margin_small"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_heading_1x"
+                android:gravity="center"
+                android:text="About Oranges Are Not the On......"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+       <androidx.appcompat.widget.AppCompatTextView
+           android:text="The New York Times-bestselling author's Whitbread Prize-winning debut - Winterson has mastedred both comedy and tragedy in this rich little novel. (The Washington Post Book World. \n The New York Times-bestselling author's Whitbread Prize-winning debut - Winterson has mastedred both comedy and tragedy in this rich little novel. (The Washington Post Book World. \n The New York Times-bestselling author's Whitbread Prize-winning debut - Winterson has mastedred both comedy and tragedy in this rich little novel. (The Washington Post Book World. \n The New York Times-bestselling author's Whitbread Prize-winning debut - Winterson has mastedred both comedy and tragedy in this rich little novel. (The Washington Post Book World. \n The New York Times-bestselling author's Whitbread Prize-winning debut - Winterson has mastedred both comedy and tragedy in this rich little novel. (The Washington Post Book World."
+           android:padding="@dimen/margin_medium"
+           android:textSize="@dimen/text_regular_3x"
+           android:textColor="@color/whiteDark10"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

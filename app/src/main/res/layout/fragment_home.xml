@@ -5,10 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.HomeFragment">
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".fragments.HomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,14 +16,15 @@
             android:id="@+id/carousel_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_medium_2"
-            android:layout_marginBottom="@dimen/margin_medium_2"
+            android:layout_marginTop="@dimen/margin_xxlarge"
             android:clipToPadding="false"
-            tools:itemCount="5"
+            tools:itemCount="2"
             tools:listitem="@layout/view_holder_read_books_list"
             tools:orientation="horizontal" />
 
         <com.google.android.material.tabs.TabLayout
+            app:tabTextAppearance="@style/MyCustomTextAppearance"
+            android:layout_marginTop="@dimen/margin_xxlarge"
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,15 +45,15 @@
             android:layout_height="1dp"
             android:background="@color/whiteDark1" />
 
-        <androidx.viewpager2.widget.ViewPager2
 
-            android:id="@+id/viewPager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/margin_medium_2" />
+       <androidx.recyclerview.widget.RecyclerView
+           android:visibility="gone"
+           android:id="@+id/rvEBooksAndAudioBooksList"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:clipToPadding="false"
+           tools:listitem="@layout/view_holder_ebooks_and_audio_book_list"/>
 
     </LinearLayout>
 
-
-</FrameLayout>
 </androidx.core.widget.NestedScrollView>

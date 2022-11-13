@@ -12,6 +12,7 @@ tools:context=".fragments.LibraryFragment">
     android:orientation="vertical">
 
     <com.google.android.material.tabs.TabLayout
+        app:tabTextAppearance="@style/MyCustomTextAppearance"
         android:id="@+id/tlForBooksAndShelves"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

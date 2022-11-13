@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginTop="@dimen/margin_medium"
+        android:padding="@dimen/margin_medium"
+        android:id="@+id/cvProfileImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_profile_user_64"
+        app:civ_border_color="@color/white"
+        app:civ_border_width="1dp" />
+
+    <LinearLayout
+        android:layout_margin="@dimen/margin_medium"
+        android:layout_toEndOf="@id/cvProfileImage"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:paddingStart="@dimen/margin_medium"
+            android:paddingEnd="@dimen/margin_medium"
+            android:paddingTop="@dimen/margin_medium"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_regular_3x"
+            android:text="Steven Gomez"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:paddingStart="@dimen/margin_medium"
+            android:paddingEnd="@dimen/margin_medium"
+            android:paddingTop="@dimen/margin_small"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RatingBar
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:layout_gravity="center"
+                android:id="@+id/rbBookRating"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:progressTint="@color/btn_color"
+                android:rating="4" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:textColor="@color/whiteDark10"
+                android:textSize="@dimen/text_regular"
+                android:text="5/21/14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:padding="@dimen/margin_medium"
+            android:textColor="@color/whiteDark10"
+            android:textSize="@dimen/text_regular"
+            android:text="Had to buy the book for class, really convenient.excellent book btw."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

@@ -24,6 +24,9 @@ class ReadBooksListCarouselAdapter(var bookItemDelegate:BookItemDelegate) :  Car
             itemView.ivContextualMenuForReadBook.setOnClickListener {
                 bookItemDelegate.callContextualMenuBottomSheetDialogFun()
             }
+            itemView.ivCarouselReadBook.setOnClickListener {
+                bookItemDelegate.callBookDetailPage()
+            }
 
         }
     }

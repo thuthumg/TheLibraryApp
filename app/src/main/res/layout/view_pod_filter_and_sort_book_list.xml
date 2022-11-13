@@ -5,14 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/margin_medium_2"
-    android:paddingStart="@dimen/margin_medium_2"
-    android:paddingEnd="@dimen/margin_medium_2">
+    android:paddingBottom="@dimen/margin_medium"
+    android:paddingStart="@dimen/margin_medium"
+    android:paddingEnd="@dimen/margin_medium">
 
     <!--filter data-->
     <LinearLayout
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginEnd="@dimen/margin_medium"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -27,29 +25,31 @@
             android:src="@drawable/ic_close_gray_64"
             android:layout_width="30dp"
             android:layout_height="30dp"/>
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroupFilter"
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/margin_medium_2"
-            android:paddingBottom="@dimen/margin_medium_2"
-            app:singleLine="true"
-            app:singleSelection="false"/>
+            android:layout_height="wrap_content">
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:singleLine="true"
+                app:singleSelection="false"/>
+        </androidx.core.widget.NestedScrollView>
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginEnd="@dimen/margin_medium"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivChangeSortType"
-            android:padding="@dimen/margin_small"
+            android:padding="@dimen/margin_medium"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_filter_setting_gray_64"
+            android:src="@drawable/ic_filter_sort_gray_64"
             android:layout_width="32dp"
             android:layout_height="32dp"/>
 

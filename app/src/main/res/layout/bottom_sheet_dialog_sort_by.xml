@@ -27,21 +27,21 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <RadioButton
-            android:padding="@dimen/margin_medium_3"
+            android:padding="@dimen/margin_medium"
             android:checked="false"
             android:id="@+id/rbRecentlyOpened"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lbl_recently_opened_type"/>
         <RadioButton
-            android:padding="@dimen/margin_medium_3"
+            android:padding="@dimen/margin_medium"
             android:checked="false"
             android:id="@+id/rbTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lbl_title_type"/>
         <RadioButton
-            android:padding="@dimen/margin_medium_3"
+            android:padding="@dimen/margin_medium"
             android:checked="false"
             android:id="@+id/rbAuthor"
             android:layout_width="wrap_content"

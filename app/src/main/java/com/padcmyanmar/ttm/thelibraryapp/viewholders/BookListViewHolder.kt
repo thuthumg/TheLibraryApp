@@ -11,6 +11,10 @@ class BookListViewHolder (var bookItemDelegate: BookItemDelegate, itemView: View
         itemView.ivContextualMenu.setOnClickListener {
             bookItemDelegate.callContextualMenuBottomSheetDialogFun()
         }
+
+        itemView.cvBookCover.setOnClickListener {
+            bookItemDelegate.callBookDetailPage()
+        }
     }
 
 

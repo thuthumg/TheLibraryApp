@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mcvBookCover"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/image_corner_radius"
+            android:layout_margin="@dimen/margin_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:scaleType="centerCrop"
+                android:src="@drawable/sample_book_cover_two"
+                android:layout_width="60dp"
+                android:layout_height="100dp"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBookTitle"
+            android:padding="@dimen/margin_medium"
+            android:text="The Art of Learning"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_regular_3x"
+            android:textStyle="bold"
+            android:layout_toEndOf="@id/mcvBookCover"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_toEndOf="@id/mcvBookCover"
+            android:id="@+id/tvBookSubTitle"
+            android:paddingBottom="@dimen/margin_medium"
+            android:paddingLeft="@dimen/margin_medium"
+            android:paddingRight="@dimen/margin_medium"
+            android:text="Josh Waitzkin . Ebook"
+            android:textColor="@color/whiteDark8"
+            android:textSize="@dimen/text_regular"
+            android:textStyle="bold"
+            android:layout_below="@id/tvBookTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+    <View
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@color/whiteDark5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <LinearLayout
+        android:paddingTop="@dimen/margin_small"
+        android:paddingEnd="@dimen/margin_medium_2"
+        android:paddingStart="@dimen/margin_medium_2"
+        android:paddingBottom="@dimen/margin_medium"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:src="@drawable/ic_free_sample_gray_64"
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/margin_small"
+            android:layout_width="32dp"
+            android:layout_height="32dp"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/blackLight3"
+            android:textSize="@dimen/text_regular"
+
+            android:layout_marginStart="@dimen/margin_medium_2"
+
+            android:layout_gravity="center_vertical"
+            android:text="Free sample"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:paddingTop="@dimen/margin_small"
+        android:paddingEnd="@dimen/margin_medium_2"
+        android:paddingStart="@dimen/margin_medium_2"
+        android:paddingBottom="@dimen/margin_medium"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/margin_small"
+            android:src="@drawable/ic_about_this_book_64"
+            android:layout_width="32dp"
+            android:layout_height="32dp"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/blackLight3"
+            android:textSize="@dimen/text_regular"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:layout_gravity="center_vertical"
+            android:text="Add to wishlist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:paddingTop="@dimen/margin_small"
+        android:paddingEnd="@dimen/margin_medium_2"
+        android:paddingStart="@dimen/margin_medium_2"
+        android:paddingBottom="@dimen/margin_medium"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/margin_small"
+            android:src="@drawable/ic_about_this_book_64"
+            android:layout_width="32dp"
+            android:layout_height="32dp"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/blackLight3"
+            android:textSize="@dimen/text_regular"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:layout_gravity="center_vertical"
+            android:text="About this book"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

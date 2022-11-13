@@ -1,77 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     tools:context=".fragments.YourShelvesFragment">
 
-
     <LinearLayout
-        android:gravity="center_horizontal"
-        android:layout_gravity="center"
-        android:orientation="vertical"
+        android:id="@+id/llEmptyView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone">
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvNoShelves"
-
-            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No shelves"
             android:textColor="@color/black"
             android:textSize="@dimen/text_heading_1x"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="No shelves" />
+            android:textStyle="bold" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvCreateShelves"
-
-
-            android:textColor="@color/whiteDark10"
-            android:textSize="@dimen/text_regular_2x"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Create shelves to match the way you think." />
+            android:text="Create shelves to match the way you think."
+            android:textColor="@color/whiteDark10"
+            android:textSize="@dimen/text_regular_2x" />
 
 
     </LinearLayout>
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvCreateNew"
-        android:layout_margin="@dimen/margin_medium"
-        android:clipToPadding="true"
-        app:cardCornerRadius="20dp"
-        app:cardBackgroundColor="@color/create_shelves_btn_color"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:padding="@dimen/margin_card_medium"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <androidx.appcompat.widget.AppCompatImageView
-                android:paddingStart="@dimen/margin_card_medium"
-                android:src="@drawable/ic_baseline_edit_24"
-                android:layout_width="25dp"
-                android:layout_height="25dp"/>
-            <androidx.appcompat.widget.AppCompatTextView
-                android:paddingEnd="@dimen/margin_card_medium_2"
-                android:paddingStart="@dimen/margin_small"
-                android:layout_gravity="center"
-                android:text="Create New"
-                android:textSize="@dimen/text_regular"
-                android:textColor="@color/white"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
 
-
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsvShelvesList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:layout_marginBottom="?attr/actionBarSize">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvShelvesList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            tools:itemCount="5"
+            tools:listitem="@layout/view_holder_shelves" />
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:gravity="center">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mBtnCreateNew"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingEnd="@dimen/margin_medium_3"
+            android:text="Create New"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_regular_2x"
+            app:backgroundTint="@color/create_shelves_btn_color"
+            app:cornerRadius="@dimen/margin_medium_3"
+            app:icon="@drawable/ic_baseline_edit_24"
+            app:iconGravity="textStart"
+            app:iconSize="@dimen/margin_medium_3" />
+    </LinearLayout>
 
 
-
-</FrameLayout>
+</RelativeLayout>

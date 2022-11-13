@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:padding="@dimen/margin_medium_2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBottomSheetShelfName"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:textSize="@dimen/text_regular_3x"
+            android:layout_gravity="center_vertical"
+            android:text="10 Interaction Design Books to Read"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <View
+        android:padding="@dimen/margin_medium"
+        android:background="@color/whiteDark3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <LinearLayout
+        android:id="@+id/llRenameShelf"
+        android:paddingTop="@dimen/margin_medium_2"
+        android:paddingEnd="@dimen/margin_medium_2"
+        android:paddingStart="@dimen/margin_medium_2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatImageView
+
+            android:src="@drawable/ic_baseline_mode_edit_outline_24"
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/margin_small"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:textColor="@color/blackLight3"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:textSize="@dimen/text_regular"
+
+
+            android:layout_gravity="center_vertical"
+            android:text="Rename shelf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/llDeleteShelf"
+        android:paddingTop="@dimen/margin_medium_2"
+        android:paddingStart="@dimen/margin_medium_2"
+        android:paddingEnd="@dimen/margin_medium_2"
+        android:paddingBottom="@dimen/margin_medium_3"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatImageView
+
+            android:src="@drawable/ic_delete_64"
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/margin_small"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+        <androidx.appcompat.widget.AppCompatTextView
+
+            android:textColor="@color/blackLight3"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:textSize="@dimen/text_regular"
+            android:layout_gravity="center_vertical"
+            android:text="Delete shelf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

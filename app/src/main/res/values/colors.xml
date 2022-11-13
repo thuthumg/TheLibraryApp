@@ -11,7 +11,7 @@
     <color name="colorPrimary">#EFF3FC</color>
     <color name="colorPrimaryDark">#FEFFFF</color>
     <color name="colorPrimaryLight">#AEB6CA</color>
-    <color name="colorAccent">@color/purple_700</color>
+    <color name="colorAccent">#396CE8</color>
     <color name="colorSecondaryText">#4B587A</color>
     <color name="tv_count_color">#34466A</color>
 
@@ -63,8 +63,13 @@
     <color name="purple">#866CEF</color>
 
     <color name="chip_selected_color">#4E57AA</color>
-    <color name="chip_unselected_color">@color/light_gray</color>
+    <color name="chip_unselected_color">@color/white</color>
     <color name="create_shelves_btn_color">#5F6ACF</color>
+
+    <color name="btn_color">#FF007AC8</color>
+    <color name="progress_bar_color">#396CE8</color>
+
+
 
 
 </resources>

@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <RelativeLayout
+        android:layout_marginTop="@dimen/margin_medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <com.google.android.material.card.MaterialCardView
@@ -51,51 +52,65 @@
 
     </RelativeLayout>
     <View
+        android:layout_marginTop="@dimen/margin_medium"
         android:background="@color/whiteDark5"
         android:layout_width="match_parent"
         android:layout_height="1dp"/>
     <LinearLayout
-        android:padding="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:paddingTop="@dimen/margin_medium"
+        android:paddingEnd="@dimen/margin_medium_2"
+        android:paddingStart="@dimen/margin_medium_2"
+        android:paddingBottom="@dimen/margin_medium"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <androidx.appcompat.widget.AppCompatImageView
             android:src="@drawable/ic_download_gray_64"
             android:layout_gravity="center_vertical"
-            android:padding="@dimen/margin_small"
+            android:padding="@dimen/margin_medium"
             android:layout_width="32dp"
             android:layout_height="32dp"/>
         <androidx.appcompat.widget.AppCompatTextView
-            android:textColor="@color/black"
+            android:textColor="@color/blackLight3"
+            android:textStyle="bold"
             android:layout_marginStart="@dimen/margin_medium_2"
-            android:textSize="@dimen/text_regular_2x"
+            android:textSize="@dimen/text_regular"
             android:layout_gravity="center_vertical"
             android:text="Download"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout
-        android:padding="@dimen/margin_medium_2"
+        android:paddingTop="@dimen/margin_small"
+        android:paddingEnd="@dimen/margin_medium_2"
+        android:paddingStart="@dimen/margin_medium_2"
+        android:paddingBottom="@dimen/margin_medium"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <androidx.appcompat.widget.AppCompatImageView
             android:src="@drawable/ic_delete_64"
             android:layout_gravity="center_vertical"
-            android:padding="@dimen/margin_small"
+            android:padding="@dimen/margin_medium"
             android:layout_width="32dp"
             android:layout_height="32dp"/>
         <androidx.appcompat.widget.AppCompatTextView
-            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textColor="@color/blackLight3"
             android:layout_marginStart="@dimen/margin_medium_2"
-            android:textSize="@dimen/text_regular_2x"
+            android:textSize="@dimen/text_regular"
             android:layout_gravity="center_vertical"
             android:text="Delete from your library"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout
-        android:padding="@dimen/margin_medium_2"
+        android:paddingTop="@dimen/margin_small"
+        android:paddingEnd="@dimen/margin_medium_2"
+        android:paddingStart="@dimen/margin_medium_2"
+        android:paddingBottom="@dimen/margin_medium"
+
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -103,33 +118,38 @@
 
             android:src="@drawable/ic_add_64"
             android:layout_gravity="center_vertical"
-            android:padding="@dimen/margin_small"
+            android:padding="@dimen/margin_medium"
             android:layout_width="32dp"
             android:layout_height="32dp"/>
         <androidx.appcompat.widget.AppCompatTextView
-            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textColor="@color/blackLight3"
             android:layout_marginStart="@dimen/margin_medium_2"
-            android:textSize="@dimen/text_regular_2x"
+            android:textSize="@dimen/text_regular"
             android:layout_gravity="center_vertical"
             android:text="Add to shelves..."
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout
-        android:padding="@dimen/margin_medium_2"
+        android:paddingTop="@dimen/margin_small"
+        android:paddingEnd="@dimen/margin_medium_2"
+        android:paddingStart="@dimen/margin_medium_2"
+        android:paddingBottom="@dimen/margin_medium"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_gravity="center_vertical"
-            android:padding="@dimen/margin_small"
+            android:padding="@dimen/margin_medium"
             android:src="@drawable/ic_check_gray_64"
             android:layout_width="32dp"
             android:layout_height="32dp"/>
         <androidx.appcompat.widget.AppCompatTextView
-            android:textColor="@color/black"
 
-            android:textSize="@dimen/text_regular_2x"
+            android:textStyle="bold"
+            android:textColor="@color/blackLight3"
+            android:textSize="@dimen/text_regular"
             android:layout_marginStart="@dimen/margin_medium_2"
             android:layout_gravity="center_vertical"
             android:text="Mark as read"

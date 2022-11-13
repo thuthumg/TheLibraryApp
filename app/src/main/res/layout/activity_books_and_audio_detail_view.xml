@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".activities.BooksAndAudioDetailViewActivity">
+
+
+<com.google.android.material.appbar.AppBarLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnBackBookDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_marginEnd="@dimen/margin_medium_2"
+            android:padding="@dimen/margin_small"
+            android:layout_gravity="end"
+            android:id="@+id/btnContextualMenu"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:srcCompat="@drawable/ic_export_gray_64" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+</com.google.android.material.appbar.AppBarLayout>
+<androidx.core.widget.NestedScrollView
+    android:layout_marginTop="@dimen/margin_medium"
+    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/mcvBookCover"
+                app:strokeColor="@color/whiteDark5"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/margin_medium"
+                android:layout_margin="@dimen/margin_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/sample_book_cover_two"
+                    android:layout_width="80dp"
+                    android:layout_height="125dp"/>
+            </com.google.android.material.card.MaterialCardView>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_toEndOf="@id/mcvBookCover"
+                    android:id="@+id/tvBookTitle"
+                    android:paddingEnd="@dimen/margin_medium"
+                    android:paddingTop="@dimen/margin_medium"
+                    android:paddingStart="@dimen/margin_medium"
+                    android:paddingBottom="@dimen/margin_small"
+                    android:text="@string/lbl_the_art_of_learning"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_regular_3x"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_toEndOf="@id/mcvBookCover"
+                    android:layout_below="@id/tvBookTitle"
+                    android:id="@+id/tvBookSubTitle"
+                    android:paddingLeft="@dimen/margin_medium"
+                    android:paddingRight="@dimen/margin_medium"
+                    android:text="@string/lbl_josh_waitzkin_ebook"
+                    android:textColor="@color/whiteDark8"
+                    android:textSize="@dimen/text_regular"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_toEndOf="@id/mcvBookCover"
+                    android:layout_below="@id/tvBookSubTitle"
+                    android:id="@+id/tvBookTypeAndPages"
+                    android:paddingBottom="@dimen/margin_medium"
+                    android:paddingLeft="@dimen/margin_medium"
+                    android:paddingRight="@dimen/margin_medium"
+                    android:text="@string/lbl_ebook_187pages"
+                    android:textColor="@color/whiteDark8"
+                    android:textSize="@dimen/text_regular"
+                    android:textStyle="bold"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:background="@color/whiteDark3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <RelativeLayout
+            android:layout_margin="@dimen/margin_small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mBtnFreeSample"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_free_sample"
+                android:textAllCaps="false"
+                android:textColor="@color/btn_color"
+                app:backgroundTint="@color/white"
+                app:strokeColor="@color/whiteDark1"
+                app:strokeWidth="1dp"
+                android:layout_marginStart="@dimen/margin_medium"/>
+
+            <com.google.android.material.button.MaterialButton
+                app:iconGravity="textStart"
+                app:icon="@drawable/ic_bookmark_white_64"
+                android:layout_toEndOf="@id/mBtnFreeSample"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_add_to_wishlist"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/btn_color"
+                app:strokeColor="@color/whiteDark1"
+                app:strokeWidth="1dp"
+                android:layout_marginStart="@dimen/margin_medium"/>
+        </RelativeLayout>
+
+        <!--Information-->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_margin="@dimen/margin_medium_2"
+            android:text="Books that you buy on the Google Play website can be read in this app,"
+            android:drawablePadding="@dimen/margin_medium"
+            android:drawableStart="@drawable/ic_info_gray_64"
+            android:textStyle="bold"
+            android:textColor="@color/whiteDark8"
+            android:textSize="@dimen/text_regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:background="@color/whiteDark2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <!--About this book-->
+        <RelativeLayout
+            android:padding="@dimen/margin_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:textStyle="bold"
+                android:id="@+id/lblAboutThisEbook"
+                android:layout_margin="@dimen/margin_medium"
+                android:text="@string/lbl_about_this_ebook"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_regular_2x"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivAboutBook"
+                android:padding="@dimen/margin_medium"
+                android:layout_alignParentEnd="true"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:textStyle="bold"
+              android:layout_below="@id/lblAboutThisEbook"
+                android:layout_margin="@dimen/margin_medium"
+                android:text="The New York Times-bestselling author's Whitbread Prize-winning debut- \' Winterson has mastered both comedy and tragedy in this rich little novel \' (The Washington Post Book World)."
+                android:textColor="@color/whiteDark8"
+                android:textSize="@dimen/text_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+        <!--Rating and reviews-->
+        <LinearLayout
+
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rlRatingAndReview"
+                android:padding="@dimen/margin_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/lblRatingsAndReviews"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:text="@string/lbl_ratings_and_reviews"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_regular_2x"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:padding="@dimen/margin_medium"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+
+                    android:gravity="center"
+                    android:id="@+id/llRatingNumberCount"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:gravity="center"
+                        android:id="@+id/tvRatingNumber"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:text="3.9"
+                        android:textSize="@dimen/text_big_2x"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <RatingBar
+                        android:layout_gravity="center"
+
+                        android:id="@+id/rbBookRating"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:numStars="5"
+                        android:progressTint="@color/btn_color"
+                        android:rating="4" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                       android:gravity="center"
+                        android:id="@+id/tvRatingCount"
+
+                        android:textStyle="bold"
+                        android:textColor="@color/whiteDark7"
+                        android:text="95 ratings"
+                        android:textSize="@dimen/text_small"
+                        android:layout_margin="@dimen/margin_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginEnd="@dimen/margin_medium_2"
+                    android:id="@+id/llProgressBar"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:padding="@dimen/margin_small"
+                            android:id="@+id/tvRateCountNo5"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_regular_2x"
+                            android:textStyle="bold"
+                            android:text="5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <ProgressBar
+                            android:layout_toEndOf="@id/tvRateCountNo5"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/pb5"
+                            android:layout_width="match_parent"
+                            android:layout_height="12dp"
+                            android:progress="30"
+                            android:max="100"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:progressDrawable="@drawable/custom_progress_bg"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:padding="@dimen/margin_small"
+                            android:id="@+id/tvRateCountNo4"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_regular_2x"
+                            android:textStyle="bold"
+                            android:text="4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <ProgressBar
+                            android:layout_toEndOf="@id/tvRateCountNo4"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/pb4"
+                            android:layout_width="match_parent"
+                            android:layout_height="12dp"
+                            android:progress="50"
+                            android:max="100"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:progressDrawable="@drawable/custom_progress_bg"/>
+
+
+                    </RelativeLayout>
+                    <RelativeLayout
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:padding="@dimen/margin_small"
+                            android:id="@+id/tvRateCountNo3"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_regular_2x"
+                            android:textStyle="bold"
+                            android:text="3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <ProgressBar
+                            android:layout_toEndOf="@id/tvRateCountNo3"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/pb3"
+                            android:layout_width="match_parent"
+                            android:layout_height="12dp"
+                            android:progress="20"
+                            android:max="100"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:progressDrawable="@drawable/custom_progress_bg"/>
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:padding="@dimen/margin_small"
+                            android:id="@+id/tvRateCountNo2"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_regular_2x"
+                            android:textStyle="bold"
+                            android:text="2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <ProgressBar
+                            android:layout_toEndOf="@id/tvRateCountNo2"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/pb2"
+                            android:layout_width="match_parent"
+                            android:layout_height="12dp"
+                            android:progress="4"
+                            android:max="100"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:progressDrawable="@drawable/custom_progress_bg"/>
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:padding="@dimen/margin_small"
+                            android:id="@+id/tvRateCountNo1"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_regular_2x"
+                            android:textStyle="bold"
+                            android:text="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <ProgressBar
+                            android:layout_toEndOf="@id/tvRateCountNo1"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/pb1"
+                            android:layout_width="match_parent"
+                            android:layout_height="12dp"
+                            android:progress="3"
+                            android:max="100"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:progressDrawable="@drawable/custom_progress_bg"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRatingReviewList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                tools:itemCount="4"
+                tools:listitem="@layout/view_holder_rating_review_list"/>
+
+
+        </LinearLayout>
+
+        <!--Published-->
+        <RelativeLayout
+            android:padding="@dimen/margin_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lblPublish"
+                android:layout_margin="@dimen/margin_medium"
+                android:text="Published"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_regular_2x"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:textStyle="bold"
+                android:layout_below="@id/lblPublish"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:text="December 1,2007 . Open Road + Grove/Atlantic"
+                android:textColor="@color/whiteDark8"
+                android:textSize="@dimen/text_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

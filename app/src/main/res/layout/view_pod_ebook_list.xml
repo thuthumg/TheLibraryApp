@@ -10,5 +10,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipToPadding="false"
-        tools:listitem="@layout/view_holder_ebooks_list" />
+        tools:listitem="@layout/view_holder_ebooks_and_audio_book_list" />
 </com.padcmyanmar.ttm.thelibraryapp.viewpods.EBooksListViewPod>

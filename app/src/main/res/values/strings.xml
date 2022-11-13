@@ -9,4 +9,11 @@
     <string name="lbl_title_type">Title</string>
     <string name="lbl_author_type">Author</string>
     <string name="lbl_sort_by">Sort by: %1s</string>
+    <string name="lbl_the_art_of_learning">The Art of Learning</string>
+    <string name="lbl_josh_waitzkin_ebook">Josh Waitzkin . Ebook</string>
+    <string name="lbl_ebook_187pages">Ebook.187pages</string>
+    <string name="lbl_free_sample">Free sample</string>
+    <string name="lbl_add_to_wishlist">Add to wishlist</string>
+    <string name="lbl_about_this_ebook">About this ebook</string>
+    <string name="lbl_ratings_and_reviews">Ratings and reviews</string>
 </resources>

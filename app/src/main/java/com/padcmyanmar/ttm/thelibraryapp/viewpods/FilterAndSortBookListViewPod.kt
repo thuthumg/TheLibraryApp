@@ -137,7 +137,9 @@ class FilterAndSortBookListViewPod @JvmOverloads constructor(
             resources.displayMetrics
         ).toInt()
         chip.setChipBackgroundColorResource(R.color.chip_unselected_color)
-        chip.setTextColor(resources.getColor(R.color.black))
+        chip.chipStrokeWidth = 1F
+        chip.setChipStrokeColorResource(R.color.whiteDark5)
+
         chip.isCloseIconVisible = false
         chip.isCheckedIconVisible = false
         chip.setPadding(paddingDp, paddingDp, paddingDp, paddingDp)
@@ -154,6 +156,8 @@ class FilterAndSortBookListViewPod @JvmOverloads constructor(
                 } else {
                     chip.chipBackgroundColor =
                         AppCompatResources.getColorStateList(it, R.color.chip_unselected_color)
+                    chip.chipStrokeWidth = 1F
+                    chip.chipStrokeColor=AppCompatResources.getColorStateList(it, R.color.whiteDark5)
                     chip.setTextColor(resources.getColor(R.color.black))
                     chip.isChecked = false
                     selectedChipItems.remove(chip.text.toString())

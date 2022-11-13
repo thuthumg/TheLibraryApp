@@ -55,4 +55,6 @@
     <dimen name="smallAlphaFactor">0.7</dimen>
     <dimen name="smallScaleFactor">0.3</dimen>
 
+    <dimen name="image_corner_radius">8dp</dimen>
+
 </resources>

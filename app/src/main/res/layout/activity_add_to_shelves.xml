@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".activities.AddToShelvesActivity">
+
+
+<com.google.android.material.appbar.AppBarLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:title="Add to shelves"
+        app:titleCentered="true"
+        app:titleTextColor="@color/black">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivClose"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:padding="@dimen/margin_small"
+            android:src="@drawable/ic_close_gray_64"
+            android:layout_gravity="end"
+            android:layout_width="32dp"
+            android:layout_height="32dp"/>
+    </com.google.android.material.appbar.MaterialToolbar>
+</com.google.android.material.appbar.AppBarLayout>
+<RelativeLayout
+    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsvCreatedShelvesList"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvShelvesBooksItemList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:clipToPadding="false"
+            tools:itemCount="5"
+            tools:listitem="@layout/view_holder_add_to_shelves_list" />
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.button.MaterialButton
+            android:paddingStart="@dimen/margin_medium_2"
+            android:paddingEnd="@dimen/margin_medium_2"
+            android:paddingBottom="@dimen/margin_medium"
+            android:paddingTop="@dimen/margin_medium"
+            android:textAllCaps="false"
+            app:cornerRadius="@dimen/margin_medium"
+            app:backgroundTint="@color/create_shelves_btn_color"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_regular_2x"
+            android:text="Add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
