@@ -5,10 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.padcmyanmar.ttm.thelibraryapp.R
+import com.padcmyanmar.ttm.thelibraryapp.data.vos.BooksListVO
 import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemDelegate
 import kotlinx.android.synthetic.main.view_holder_read_books_list.view.*
 
 class ReadBooksListCarouselAdapter(var bookItemDelegate:BookItemDelegate) :  CarouselAdapter() {
+
+   private var readBooksListVO: List<BooksListVO>? = listOf()
+
     override fun onBindViewHolder(holder: CarouselViewHolder, position: Int) {
 
     }
@@ -19,13 +23,14 @@ class ReadBooksListCarouselAdapter(var bookItemDelegate:BookItemDelegate) :  Car
     }
 
 
+
     inner class ReadBooksListCarouselViewHolder(var bookItemDelegate:BookItemDelegate, itemView: View):CarouselViewHolder(itemView){
         init {
             itemView.ivContextualMenuForReadBook.setOnClickListener {
                 bookItemDelegate.callContextualMenuBottomSheetDialogFun()
             }
             itemView.ivCarouselReadBook.setOnClickListener {
-                bookItemDelegate.callBookDetailPage()
+              //  bookItemDelegate.callBookDetailPage(mBooksListVO)
             }
 
         }

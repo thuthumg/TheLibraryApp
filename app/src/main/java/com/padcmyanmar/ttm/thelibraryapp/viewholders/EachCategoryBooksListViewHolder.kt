@@ -15,7 +15,7 @@ class EachCategoryBooksListViewHolder(itemView: View, bookItemDelegate: BookItem
 
         }
         itemView.ivBookCoverPhoto.setOnClickListener {
-            bookItemDelegate.callBookDetailPage()
+           // bookItemDelegate.callBookDetailPage(mBooksListVO)
         }
 
     }

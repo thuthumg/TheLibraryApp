@@ -18,6 +18,7 @@
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBookCategoryName"
             android:fontFamily="sans-serif"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

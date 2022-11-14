@@ -11,6 +11,9 @@ import com.padcmyanmar.ttm.thelibraryapp.viewholders.EachCategoryBooksListViewHo
 class EachCategoryBooksListAdapter(var bookItemDelegate: BookItemDelegate) : RecyclerView.Adapter<EachCategoryBooksListViewHolder>(){
 
 
+
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EachCategoryBooksListViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(

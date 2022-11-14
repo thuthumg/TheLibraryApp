@@ -8,6 +8,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 import com.padcmyanmar.ttm.thelibraryapp.R
 import com.padcmyanmar.ttm.thelibraryapp.bottomSheetDialog.*
+import com.padcmyanmar.ttm.thelibraryapp.data.vos.BooksListVO
 import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemDelegate
 import com.padcmyanmar.ttm.thelibraryapp.delegates.SortAndViewAsDelegate
 import com.padcmyanmar.ttm.thelibraryapp.viewpods.FilterAndSortBookListViewPod
@@ -127,7 +128,7 @@ class ShelvesListActivity : AppCompatActivity(), SortAndViewAsDelegate, BookItem
         startActivity(Intent(this,EachCategoryBookListActivity::class.java))
     }
 
-    override fun callBookDetailPage() {
+    override fun callBookDetailPage(mBooksListVO: BooksListVO?) {
         startActivity(Intent(this,BooksAndAudioDetailViewActivity::class.java))
     }
 

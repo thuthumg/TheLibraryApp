@@ -40,6 +40,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/tvBookTitle"
         android:textStyle="bold"
         android:fontFamily="sans-serif"
         android:layout_width="wrap_content"
@@ -51,6 +52,7 @@
         android:textSize="@dimen/text_regular"/>
 
     <TextView
+        android:id="@+id/tvBookAuthor"
         android:textStyle="bold"
         android:fontFamily="sans-serif"
         android:layout_width="wrap_content"

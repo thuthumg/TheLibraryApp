@@ -13,6 +13,7 @@ import com.padcmyanmar.ttm.thelibraryapp.delegates.SortAndViewAsDelegate
 import com.padcmyanmar.ttm.thelibraryapp.bottomSheetDialog.SortByBottomSheetDialogFragment
 import com.padcmyanmar.ttm.thelibraryapp.bottomSheetDialog.SortedBookItemBottomSheetDialogFragment
 import com.padcmyanmar.ttm.thelibraryapp.bottomSheetDialog.ViewAsBottomSheetDialogFragment
+import com.padcmyanmar.ttm.thelibraryapp.data.vos.BooksListVO
 
 import com.padcmyanmar.ttm.thelibraryapp.viewpods.FilterAndSortBookListViewPod
 import kotlinx.android.synthetic.main.fragment_your_books.*
@@ -107,7 +108,7 @@ class YourBooksFragment : Fragment(),BookItemDelegate, SortAndViewAsDelegate {
     }
 
 
-    override fun callBookDetailPage() {
+    override fun callBookDetailPage(mBooksListVO: BooksListVO?) {
         startActivity(Intent(context, BooksAndAudioDetailViewActivity::class.java))
     }
 }

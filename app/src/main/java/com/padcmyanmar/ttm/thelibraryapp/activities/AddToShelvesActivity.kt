@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.padcmyanmar.ttm.thelibraryapp.R
 import com.padcmyanmar.ttm.thelibraryapp.adapters.AddToShelvesListAdapter
+import com.padcmyanmar.ttm.thelibraryapp.data.vos.BooksListVO
 
 import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemDelegate
 import kotlinx.android.synthetic.main.activity_add_to_shelves.*
@@ -46,7 +47,7 @@ class AddToShelvesActivity : AppCompatActivity(),BookItemDelegate {
 
     }
 
-    override fun callBookDetailPage() {
+    override fun callBookDetailPage(mBooksListVO: BooksListVO?) {
         startActivity(Intent(this,BooksAndAudioDetailViewActivity::class.java))
     }
 }

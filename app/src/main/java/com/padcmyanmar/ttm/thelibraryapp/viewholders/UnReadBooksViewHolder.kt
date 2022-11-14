@@ -2,13 +2,18 @@ package com.padcmyanmar.ttm.thelibraryapp.viewholders
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.padcmyanmar.ttm.thelibraryapp.data.vos.BooksListVO
 import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemDelegate
-import kotlinx.android.synthetic.main.view_holder_shelves.view.*
-
 import kotlinx.android.synthetic.main.view_holder_unread_books_list.view.*
-import kotlinx.android.synthetic.main.view_holder_unread_books_list.view.cvBookCover
 
-class UnReadBooksViewHolder(var bookItemDelegate: BookItemDelegate, itemView: View) : RecyclerView.ViewHolder(itemView){
+class UnReadBooksViewHolder(
+    var bookItemDelegate: BookItemDelegate,
+    itemView: View
+) : RecyclerView.ViewHolder(itemView){
+
+
+    private var mBooksListVO:BooksListVO? =null
 
     init {
         itemView.ivContextualMenu.setOnClickListener {
@@ -16,12 +21,14 @@ class UnReadBooksViewHolder(var bookItemDelegate: BookItemDelegate, itemView: Vi
         }
 
         itemView.cvBookCover.setOnClickListener {
-            bookItemDelegate.callBookDetailPage()
+            bookItemDelegate.callBookDetailPage(mBooksListVO)
         }
     }
 
 
-    fun bindData(checkAudioOrEbooksFlagParam:Boolean){
+    fun bindData(booksListVO: BooksListVO, checkAudioOrEbooksFlagParam: Boolean){
+
+        mBooksListVO = booksListVO
 
         if(checkAudioOrEbooksFlagParam)
         {
@@ -29,5 +36,22 @@ class UnReadBooksViewHolder(var bookItemDelegate: BookItemDelegate, itemView: Vi
         }else{
             itemView.ivAudio.visibility = View.GONE
         }
+
+        itemView.tvBookTitle.text = booksListVO.title
+        itemView.tvBookAuthor.text = booksListVO.author
+
+
+        booksListVO.bookImageHeight?.let { h->
+            booksListVO.bookImageWidth?.let { w ->
+                Glide.with(itemView.context)
+                    .load(booksListVO.bookImage)
+                    .override(w, h)
+ //                   .placeholder(R.drawable.sample_book_cover) //5
+//            .error(R.drawable.sample_book_pic) //6
+//            .fallback(R.drawable.sample_book_cover_two) //7
+                    .into(itemView.ivBookCoverPhoto)
+            }
+        }
+
     }
 }

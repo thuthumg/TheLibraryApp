@@ -24,6 +24,7 @@ tools:context=".activities.EachCategoryBookListActivity">
 
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/blackLight4"
                 android:textStyle="bold"

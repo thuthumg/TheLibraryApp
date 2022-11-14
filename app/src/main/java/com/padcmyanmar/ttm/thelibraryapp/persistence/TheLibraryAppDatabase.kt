@@ -4,12 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.padcmyanmar.ttm.thelibraryapp.data.vos.BooksListVO
 import com.padcmyanmar.ttm.thelibraryapp.data.vos.ShelfVO
+import com.padcmyanmar.ttm.thelibraryapp.persistence.daos.ReadBooksDao
 import com.padcmyanmar.ttm.thelibraryapp.persistence.daos.ShelfDao
 
 @Database(
-    entities = [ShelfVO::class],
-    version = 1,
+    entities = [ShelfVO::class,BooksListVO::class],
+    version = 3,
     exportSchema = false
 )
 abstract class TheLibraryAppDatabase: RoomDatabase() {
@@ -37,5 +39,7 @@ abstract class TheLibraryAppDatabase: RoomDatabase() {
     }
 
     abstract fun shelvesDao():ShelfDao
+
+    abstract fun readBooksDao():ReadBooksDao
 
 }

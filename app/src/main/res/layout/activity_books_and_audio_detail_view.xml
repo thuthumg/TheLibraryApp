@@ -59,6 +59,7 @@ tools:context=".activities.BooksAndAudioDetailViewActivity">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivBookCover"
                     android:scaleType="centerCrop"
                     android:src="@drawable/sample_book_cover_two"
                     android:layout_width="80dp"
@@ -82,7 +83,7 @@ tools:context=".activities.BooksAndAudioDetailViewActivity">
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_toEndOf="@id/mcvBookCover"
                     android:layout_below="@id/tvBookTitle"
-                    android:id="@+id/tvBookSubTitle"
+                    android:id="@+id/tvAuthor"
                     android:paddingLeft="@dimen/margin_medium"
                     android:paddingRight="@dimen/margin_medium"
                     android:text="@string/lbl_josh_waitzkin_ebook"
@@ -93,7 +94,7 @@ tools:context=".activities.BooksAndAudioDetailViewActivity">
                     android:layout_height="wrap_content"/>
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_toEndOf="@id/mcvBookCover"
-                    android:layout_below="@id/tvBookSubTitle"
+                    android:layout_below="@id/tvAuthor"
                     android:id="@+id/tvBookTypeAndPages"
                     android:paddingBottom="@dimen/margin_medium"
                     android:paddingLeft="@dimen/margin_medium"
@@ -124,9 +125,10 @@ tools:context=".activities.BooksAndAudioDetailViewActivity">
             android:layout_height="wrap_content">
 
             <com.google.android.material.button.MaterialButton
+
                 android:id="@+id/mBtnFreeSample"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:text="@string/lbl_free_sample"
                 android:textAllCaps="false"
                 android:textColor="@color/btn_color"
@@ -140,7 +142,7 @@ tools:context=".activities.BooksAndAudioDetailViewActivity">
                 app:icon="@drawable/ic_bookmark_white_64"
                 android:layout_toEndOf="@id/mBtnFreeSample"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:text="@string/lbl_add_to_wishlist"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
@@ -193,6 +195,7 @@ tools:context=".activities.BooksAndAudioDetailViewActivity">
                 android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAboutBook"
                 android:textStyle="bold"
               android:layout_below="@id/lblAboutThisEbook"
                 android:layout_margin="@dimen/margin_medium"
@@ -253,7 +256,7 @@ tools:context=".activities.BooksAndAudioDetailViewActivity">
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:text="3.9"
-                        android:textSize="@dimen/text_big_2x"
+                        android:textSize="@dimen/text_big"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
@@ -305,7 +308,7 @@ tools:context=".activities.BooksAndAudioDetailViewActivity">
                             android:layout_centerVertical="true"
                             android:id="@+id/pb5"
                             android:layout_width="match_parent"
-                            android:layout_height="12dp"
+                            android:layout_height="10dp"
                             android:progress="30"
                             android:max="100"
                             style="?android:attr/progressBarStyleHorizontal"
@@ -325,11 +328,11 @@ tools:context=".activities.BooksAndAudioDetailViewActivity">
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
                         <ProgressBar
+                            android:layout_height="10dp"
                             android:layout_toEndOf="@id/tvRateCountNo4"
                             android:layout_centerVertical="true"
                             android:id="@+id/pb4"
                             android:layout_width="match_parent"
-                            android:layout_height="12dp"
                             android:progress="50"
                             android:max="100"
                             style="?android:attr/progressBarStyleHorizontal"
@@ -351,11 +354,11 @@ tools:context=".activities.BooksAndAudioDetailViewActivity">
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
                         <ProgressBar
+                            android:layout_height="10dp"
                             android:layout_toEndOf="@id/tvRateCountNo3"
                             android:layout_centerVertical="true"
                             android:id="@+id/pb3"
                             android:layout_width="match_parent"
-                            android:layout_height="12dp"
                             android:progress="20"
                             android:max="100"
                             style="?android:attr/progressBarStyleHorizontal"
@@ -379,7 +382,7 @@ tools:context=".activities.BooksAndAudioDetailViewActivity">
                             android:layout_centerVertical="true"
                             android:id="@+id/pb2"
                             android:layout_width="match_parent"
-                            android:layout_height="12dp"
+                            android:layout_height="10dp"
                             android:progress="4"
                             android:max="100"
                             style="?android:attr/progressBarStyleHorizontal"

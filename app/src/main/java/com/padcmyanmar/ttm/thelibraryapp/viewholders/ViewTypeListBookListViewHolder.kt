@@ -15,7 +15,7 @@ class ViewTypeListBookListViewHolder  (var bookItemDelegate: BookItemDelegate, i
         }
 
         itemView.cvBookCover.setOnClickListener {
-            bookItemDelegate.callBookDetailPage()
+           // bookItemDelegate.callBookDetailPage(mBooksListVO)
         }
     }
 

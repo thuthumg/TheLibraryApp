@@ -16,6 +16,7 @@ import com.padcmyanmar.ttm.thelibraryapp.adapters.ShelvesListAdapter
 import com.padcmyanmar.ttm.thelibraryapp.bottomSheetDialog.SortedBookItemBottomSheetDialogFragment
 import com.padcmyanmar.ttm.thelibraryapp.data.models.ShelvesDataModel
 import com.padcmyanmar.ttm.thelibraryapp.data.models.ShelvesDataModelImpl
+import com.padcmyanmar.ttm.thelibraryapp.data.vos.BooksListVO
 import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemDelegate
 import com.padcmyanmar.ttm.thelibraryapp.delegates.ShelvesItemDelegate
 import com.padcmyanmar.ttm.thelibraryapp.viewpods.FilterAndSortBookListViewPod
@@ -121,7 +122,7 @@ class YourShelvesFragment : Fragment(),BookItemDelegate,ShelvesItemDelegate{
     }
 
 
-    override fun callBookDetailPage() {
+    override fun callBookDetailPage(mBooksListVO: BooksListVO?) {
         startActivity(Intent(context, BooksAndAudioDetailViewActivity::class.java))
     }
 }
