@@ -11,7 +11,7 @@ import com.padcmyanmar.ttm.thelibraryapp.persistence.daos.ShelfDao
 
 @Database(
     entities = [ShelfVO::class,BooksListVO::class],
-    version = 3,
+    version = 5,
     exportSchema = false
 )
 abstract class TheLibraryAppDatabase: RoomDatabase() {

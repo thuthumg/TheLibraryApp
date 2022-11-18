@@ -143,20 +143,6 @@ class HomeFragment : Fragment(), HomeView{
                     //  Log.d(TAG, "onScroll dx : $dx -- dy : $dx")
                 }
             })
-//            carousel.add(SampleModel(1))
-//            carousel.add(SampleModel(2))
-//            carousel.add(SampleModel(3))
-//            carousel.add(SampleModel(4))
-//            carousel.add(SampleModel(5))
-//            carousel.add(SampleModel(6))
-//            carousel.add(SampleModel(7))
-//            carousel.add(SampleModel(8))
-//            carousel.add(SampleModel(9))
-//            carousel.add(SampleModel(10))
-      //  }
-
-
-
 
     }
 
@@ -181,8 +167,11 @@ class HomeFragment : Fragment(), HomeView{
         mEBooksAndAudioBooksListAdapter.setNewData(categoryBooksList)
     }
 
-    override fun navigateToContextualMenuBottomSheetDialog() {
+    override fun navigateToContextualMenuBottomSheetDialog(mBooksListVO: BooksListVO?) {
         val customButtonSheet = BookItemBottomSheetDialogFragment()
+        var args: Bundle = Bundle()
+        args.putSerializable("booksItemParamData", mBooksListVO)
+        customButtonSheet.arguments = args
         customButtonSheet.show(requireActivity().supportFragmentManager,"modalSheetDialog")
 
     }
@@ -204,7 +193,7 @@ class HomeFragment : Fragment(), HomeView{
 
     override fun showReadBooksList(readBooksListVO: List<BooksListVO>) {
 
-        readBooksListVO.forEach {
+          readBooksListVO.forEach {
             carousel.add(it)
         }
 
@@ -214,5 +203,6 @@ class HomeFragment : Fragment(), HomeView{
     override fun showError(errorString: String) {
        Toast.makeText(context,errorString,Toast.LENGTH_SHORT).show()
     }
+
 }
 

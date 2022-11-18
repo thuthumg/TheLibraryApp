@@ -1,25 +1,21 @@
 package com.padcmyanmar.ttm.thelibraryapp.bottomSheetDialog
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.padcmyanmar.ttm.thelibraryapp.R
-import com.padcmyanmar.ttm.thelibraryapp.activities.CreateShelfActivity
-import com.padcmyanmar.ttm.thelibraryapp.activities.ShelvesListActivity
-import com.padcmyanmar.ttm.thelibraryapp.adapters.ShelvesListAdapter
-import com.padcmyanmar.ttm.thelibraryapp.data.models.ShelvesDataModel
-import com.padcmyanmar.ttm.thelibraryapp.data.models.ShelvesDataModelImpl
+import com.padcmyanmar.ttm.thelibraryapp.data.models.TheLibraryAppModel
+import com.padcmyanmar.ttm.thelibraryapp.data.models.TheLibraryAppModelImpl
+import com.padcmyanmar.ttm.thelibraryapp.delegates.ShelvesItemDelegate
 import kotlinx.android.synthetic.main.bottom_sheet_dialog_shelves.*
-import kotlinx.android.synthetic.main.fragment_your_shelves.*
 
-class ShelvesListMenuBottomSheetDialogFragment : BottomSheetDialogFragment() {
-    private val mShelvesDataModel: ShelvesDataModel = ShelvesDataModelImpl
+class ShelvesListMenuBottomSheetDialogFragment(var shelvesItemDelegate: ShelvesItemDelegate) : BottomSheetDialogFragment() {
+    private val mTheLibraryAppModel: TheLibraryAppModel = TheLibraryAppModelImpl
     var shelvesName:String = ""
+    var shelvesId:Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NORMAL, R.style.CustomBottomSheetDialogTheme)
@@ -46,22 +42,15 @@ class ShelvesListMenuBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     private fun clickListener() {
         llRenameShelf.setOnClickListener {
-
-
+            dismiss()
+            shelvesItemDelegate.renameShelf()
            // startActivity(Intent(context,CreateShelfActivity::class.java))
         }
 
         llDeleteShelf.setOnClickListener {
-            mShelvesDataModel.deleteShelf(
-                1,
-                onSuccess = {
-                    showToast(it)
-                    dismiss()
+            dismiss()
+            shelvesItemDelegate.deleteShelf(shelvesId)
 
-                },
-                onFailure = {
-                    showToast(it)
-                })
         }
     }
 
@@ -77,6 +66,8 @@ class ShelvesListMenuBottomSheetDialogFragment : BottomSheetDialogFragment() {
         if(arguments != null)
         {
             shelvesName = arguments?.getString("shelvesNameId").toString()
+            shelvesId = arguments?.getInt("shelvesId")!!
+
         }
     }
 

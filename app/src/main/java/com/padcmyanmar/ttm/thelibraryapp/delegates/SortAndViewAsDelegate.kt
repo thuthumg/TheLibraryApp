@@ -7,5 +7,7 @@ interface SortAndViewAsDelegate {
 
     fun callViewAsBottomSheetDialog(changeListViewType: String)
     fun callSortByBottomSheetDialog(changeSortType: String)
+    fun callFilterByCategory(chipNameList: ArrayList<String>)
+
 
 }

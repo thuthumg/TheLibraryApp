@@ -1,6 +1,7 @@
 package com.padcmyanmar.ttm.thelibraryapp.data.vos
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class CategoryBooksListVO(
 
@@ -26,4 +27,4 @@ data class CategoryBooksListVO(
     @SerializedName("books")
     val books: List<BooksListVO>?
 
-): java.io.Serializable
+): Serializable

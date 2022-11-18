@@ -67,10 +67,12 @@ class EachCategoryBookListActivity : AppCompatActivity() , BookItemDelegate {
         rvBooksItemList.adapter = mEachCategoryBooksListAdapter
         rvBooksItemList.layoutManager = GridLayoutManager(this,2,
             VERTICAL,false)
+        mCategoryBooksListVO.books?.let { mEachCategoryBooksListAdapter.setData(it) }
+
 
     }
 
-    override fun callContextualMenuBottomSheetDialogFun() {
+    override fun callContextualMenuBottomSheetDialogFun(mBooksListVO: BooksListVO) {
         val bookListMoreBottomSheetDialogFragment = BookListMoreBottomSheetDialogFragment()
         bookListMoreBottomSheetDialogFragment.show(supportFragmentManager,"modalSheetDialog")
 
@@ -82,5 +84,17 @@ class EachCategoryBookListActivity : AppCompatActivity() , BookItemDelegate {
 
     override fun callBookDetailPage(mBooksListVO: BooksListVO?) {
         startActivity(Intent(this,BooksAndAudioDetailViewActivity::class.java))
+    }
+
+    override fun addToShelvesList(mBooksListVO: BooksListVO) {
+        //
+    }
+
+    override fun deleteFromLibrary() {
+        TODO("Not yet implemented")
+    }
+
+    override fun aboutThisBook() {
+        TODO("Not yet implemented")
     }
 }

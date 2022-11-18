@@ -2,8 +2,8 @@ package com.padcmyanmar.ttm.thelibraryapp.mvp.presenters
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
-import com.padcmyanmar.ttm.thelibraryapp.data.models.HomePageModel
-import com.padcmyanmar.ttm.thelibraryapp.data.models.HomePageModelImpl
+import com.padcmyanmar.ttm.thelibraryapp.data.models.TheLibraryAppModel
+import com.padcmyanmar.ttm.thelibraryapp.data.models.TheLibraryAppModelImpl
 import com.padcmyanmar.ttm.thelibraryapp.data.vos.BooksListVO
 import com.padcmyanmar.ttm.thelibraryapp.data.vos.CategoryBooksListVO
 import com.padcmyanmar.ttm.thelibraryapp.mvp.views.HomeView
@@ -14,7 +14,7 @@ class HomePresenterImpl : ViewModel(),HomePresenter {
     var mView: HomeView?= null
 
     //Model
-    private val mHomePageModel: HomePageModel = HomePageModelImpl
+    private val mTheLibraryAppModel: TheLibraryAppModel = TheLibraryAppModelImpl
 
     //States
     private var mCategoryBooksList: List<CategoryBooksListVO>? = listOf()
@@ -25,7 +25,7 @@ class HomePresenterImpl : ViewModel(),HomePresenter {
 
     override fun onUiReady(owner: LifecycleOwner) {
 
-        mHomePageModel.getCategoryBooksList(
+        mTheLibraryAppModel.getCategoryBooksList(
             published_date = "2022-11-14",
             onSuccess = {
             mCategoryBooksList = it
@@ -36,16 +36,16 @@ class HomePresenterImpl : ViewModel(),HomePresenter {
         })
 
 
-        mHomePageModel.getReadBooksList {
+        mTheLibraryAppModel.getReadBooksList {
             mView?.showError(it)
         }?.observe(owner){
-            mView?.showReadBooksList(it)
+            mView?.showReadBooksList(it.reversed())
         }
 
     }
 
-    override fun callContextualMenuBottomSheetDialogFun() {
-       mView?.navigateToContextualMenuBottomSheetDialog()
+    override fun callContextualMenuBottomSheetDialogFun(mBooksListVO: BooksListVO) {
+       mView?.navigateToContextualMenuBottomSheetDialog(mBooksListVO)
     }
 
     override fun callMoreFunc() {
@@ -54,16 +54,30 @@ class HomePresenterImpl : ViewModel(),HomePresenter {
 
     override fun callBookDetailPage(mBooksListVO: BooksListVO?) {
         mBooksListVO?.let {
-            mHomePageModel.insertReadBook(
-                it,
-                onSuccess = {
-                    mView?.showError(it)
-            },
-                onFailure = {
-                    mView?.showError(it)
-                })
+            mTheLibraryAppModel.insertReadBook(
+                it)
         }
 
        mView?.navigateToBookDetailPage(mBooksListVO)
     }
+
+    override fun addToShelvesList(mBooksListVO: BooksListVO) {
+       //
+    }
+
+    override fun deleteFromLibrary() {
+       //
+    }
+
+    override fun aboutThisBook() {
+      //
+    }
+
+//    ,
+//                onSuccess = {
+//                    mView?.showError(it)
+//            },
+//                onFailure = {
+//                    mView?.showError(it)
+//                }
 }

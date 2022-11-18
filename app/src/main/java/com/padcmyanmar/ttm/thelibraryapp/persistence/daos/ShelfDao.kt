@@ -1,5 +1,6 @@
 package com.padcmyanmar.ttm.thelibraryapp.persistence.daos
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -14,12 +15,17 @@ interface ShelfDao {
         shelfVO: ShelfVO
     )
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAllShelves(
+        shelfVOList: List<ShelfVO>
+    )
 
     @Query("SELECT * FROM shelves")
-    fun getAllShelves(): List<ShelfVO>
+    fun getAllShelves(): LiveData<List<ShelfVO>>
 
     @Query("DELETE FROM shelves WHERE id = :shelfId")
     fun deleteByShelfId(shelfId: Int)
+
 
 
 }

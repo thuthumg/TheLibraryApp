@@ -4,7 +4,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context=".activities.ShelvesListActivity">
+tools:context=".activities.ShelvesListDetailActivity">
 
 
 <com.google.android.material.appbar.AppBarLayout
@@ -45,6 +45,7 @@ tools:context=".activities.ShelvesListActivity">
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
         <androidx.appcompat.widget.AppCompatTextView
+            android:visibility="gone"
             android:padding="@dimen/margin_medium"
             tools:text="10 Interaction Design Books to Read"
             android:textStyle="bold"
@@ -53,6 +54,21 @@ tools:context=".activities.ShelvesListActivity">
             android:id="@+id/tvShelvesName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            android:visibility="gone"
+            android:padding="@dimen/margin_medium"
+            tools:text="10 Interaction Design Books to Read"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_heading_2x"
+            android:textColor="@color/black"
+            android:id="@+id/etShelvesName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
         <androidx.appcompat.widget.AppCompatTextView
             android:padding="@dimen/margin_medium"
             android:text="3 books"

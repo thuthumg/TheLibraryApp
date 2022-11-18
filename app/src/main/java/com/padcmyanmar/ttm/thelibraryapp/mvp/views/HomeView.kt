@@ -6,7 +6,7 @@ import com.padcmyanmar.ttm.thelibraryapp.data.vos.CategoryBooksListVO
 interface HomeView : BaseView{
 
     fun showCategoryBooksList(categoryBooksList: List<CategoryBooksListVO>)
-    fun navigateToContextualMenuBottomSheetDialog()
+    fun navigateToContextualMenuBottomSheetDialog(mBooksListVO: BooksListVO?)
     fun navigateToBooksMorePage()
     fun navigateToBookDetailPage(mBooksListVO: BooksListVO?)
 

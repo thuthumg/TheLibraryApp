@@ -41,12 +41,15 @@ class EBooksAndAudioBooksListViewHolder(var bookItemDelegate: BookItemDelegate, 
         mBooksListVO: List<BooksListVO>,
         checkAudioOrEbooksFlag: Boolean
     ) {
-        mUnReadBooksAdapter = UnReadBooksAdapter(bookItemDelegate,checkAudioOrEbooksFlag)
-        itemView.rvUnReadBooksItemList.adapter = mUnReadBooksAdapter
-        itemView.rvUnReadBooksItemList.layoutManager = LinearLayoutManager(
-            itemView.context,
-            LinearLayoutManager.HORIZONTAL, false
-        )
-        mUnReadBooksAdapter.setNewData(mBooksListVO)
+        mCategoryBooksListVO?.let {
+            mUnReadBooksAdapter = UnReadBooksAdapter(it,bookItemDelegate,checkAudioOrEbooksFlag)
+            itemView.rvUnReadBooksItemList.adapter = mUnReadBooksAdapter
+            itemView.rvUnReadBooksItemList.layoutManager = LinearLayoutManager(
+                itemView.context,
+                LinearLayoutManager.HORIZONTAL, false
+            )
+            mUnReadBooksAdapter.setNewData(mBooksListVO)
+        }
+
     }
 }

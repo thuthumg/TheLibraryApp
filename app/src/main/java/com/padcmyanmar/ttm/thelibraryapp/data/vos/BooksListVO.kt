@@ -10,11 +10,14 @@ import java.io.Serializable
 @Entity(tableName = "books")
 data class BooksListVO (
 
-    @PrimaryKey
-    val id: Int = 0,
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0,
 
     @ColumnInfo(name = "category_id")
-    val categoryId: Int?,
+    var categoryId: Int?,
+
+    @ColumnInfo(name = "category_name")
+    var categoryName: String?,
 
     @SerializedName("age_group")
     @ColumnInfo(name = "age_group")
@@ -89,4 +92,4 @@ data class BooksListVO (
     val updatedDate:String?
 
 
-)  : Serializable, CarouselModel()
+)  : Serializable , CarouselModel()

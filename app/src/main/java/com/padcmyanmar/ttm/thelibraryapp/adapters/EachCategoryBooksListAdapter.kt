@@ -1,9 +1,11 @@
 package com.padcmyanmar.ttm.thelibraryapp.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.padcmyanmar.ttm.thelibraryapp.R
+import com.padcmyanmar.ttm.thelibraryapp.data.vos.BooksListVO
 import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemDelegate
 import com.padcmyanmar.ttm.thelibraryapp.viewholders.EachCategoryBooksListViewHolder
 
@@ -11,7 +13,7 @@ import com.padcmyanmar.ttm.thelibraryapp.viewholders.EachCategoryBooksListViewHo
 class EachCategoryBooksListAdapter(var bookItemDelegate: BookItemDelegate) : RecyclerView.Adapter<EachCategoryBooksListViewHolder>(){
 
 
-
+    var mBooks: List<BooksListVO> = listOf()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EachCategoryBooksListViewHolder {
@@ -25,10 +27,22 @@ class EachCategoryBooksListAdapter(var bookItemDelegate: BookItemDelegate) : Rec
 
     override fun onBindViewHolder(holder: EachCategoryBooksListViewHolder, position: Int) {
 
+
+       if(mBooks.isNotEmpty())
+       {
+           holder.bindData(mBooks[position])
+       }
+
     }
 
     override fun getItemCount(): Int {
-        return 7
+        return mBooks.size
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setData(books: List<BooksListVO>){
+        mBooks = books
+        notifyDataSetChanged()
     }
 
 }

@@ -1,15 +1,14 @@
 package com.padcmyanmar.ttm.thelibraryapp
 
 import android.app.Application
-import com.padcmyanmar.ttm.thelibraryapp.data.models.ShelvesDataModel
-import com.padcmyanmar.ttm.thelibraryapp.data.models.ShelvesDataModelImpl
-import com.padcmyanmar.ttm.thelibraryapp.persistence.TheLibraryAppDatabase
+import com.padcmyanmar.ttm.thelibraryapp.data.models.TheLibraryAppModelImpl.initDatabase
+
 
 class TheLibraryApplication:Application() {
 
     override fun onCreate() {
         super.onCreate()
 
-        ShelvesDataModelImpl.initDatabase(applicationContext)
+        initDatabase(applicationContext)
     }
 }

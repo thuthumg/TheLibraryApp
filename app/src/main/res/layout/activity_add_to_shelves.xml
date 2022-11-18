@@ -62,19 +62,42 @@ tools:context=".activities.AddToShelvesActivity">
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+
+
+
         <com.google.android.material.button.MaterialButton
-            android:paddingStart="@dimen/margin_medium_2"
-            android:paddingEnd="@dimen/margin_medium_2"
+            android:id="@+id/mbtnConfirm"
+            android:paddingStart="@dimen/margin_medium_3"
+            android:paddingEnd="@dimen/margin_medium_3"
             android:paddingBottom="@dimen/margin_medium"
             android:paddingTop="@dimen/margin_medium"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:text="Confirm"
             android:textAllCaps="false"
-            app:cornerRadius="@dimen/margin_medium"
-            app:backgroundTint="@color/create_shelves_btn_color"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_regular_2x"
-            android:text="Add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textSize="@dimen/text_regular"
+            app:backgroundTint="@color/create_shelves_btn_color"
+            app:cornerRadius="@dimen/margin_medium_3"
+            app:iconGravity="textStart"
+            app:iconSize="@dimen/margin_medium_3" />
+
+
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:id="@+id/mbtnConfirm"-->
+<!--            android:paddingStart="@dimen/margin_medium_2"-->
+<!--            android:paddingEnd="@dimen/margin_medium_2"-->
+<!--            android:paddingBottom="@dimen/margin_medium"-->
+<!--            android:paddingTop="@dimen/margin_medium"-->
+<!--            android:textAllCaps="false"-->
+<!--            app:cornerRadius="@dimen/margin_medium"-->
+<!--            app:backgroundTint="@color/create_shelves_btn_color"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="@dimen/text_regular_2x"-->
+<!--            android:text="Confirm"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
     </LinearLayout>
 
 </RelativeLayout>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:paddingStart="@dimen/margin_card_medium_2"
     android:paddingTop="@dimen/margin_card_medium_2"
@@ -9,18 +10,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/margin_medium_2">
+<!--    <androidx.recyclerview.widget.RecyclerView-->
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivBookCoverPhotoInShelf"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/sample_book_cover" />
-    </androidx.cardview.widget.CardView>
+<!--        android:id="@+id/rvBooksCoverImgList"-->
+<!--        tools:itemCount="5"-->
+<!--        tools:listitem="@layout/view_holder_book_cover_list"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+    <include
+        android:id="@+id/vpBooksCoverImgList"
+        layout="@layout/view_pod_overlap_recyclerview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
 
     <LinearLayout
         android:layout_weight="1"

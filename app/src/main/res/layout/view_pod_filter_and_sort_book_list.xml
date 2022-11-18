@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.padcmyanmar.ttm.thelibraryapp.viewpods.FilterAndSortBookListViewPod
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.padcmyanmar.ttm.thelibraryapp.viewpods.FilterAndSortBookListViewPod xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:paddingBottom="@dimen/margin_medium"
     android:paddingStart="@dimen/margin_medium"
@@ -11,6 +11,7 @@
 
     <!--filter data-->
     <LinearLayout
+
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -26,16 +27,18 @@
             android:layout_width="30dp"
             android:layout_height="30dp"/>
 
-        <androidx.core.widget.NestedScrollView
+        <HorizontalScrollView
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chipGroupFilter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:singleLine="true"
                 app:singleSelection="false"/>
-        </androidx.core.widget.NestedScrollView>
+        </HorizontalScrollView>
 
     </LinearLayout>
 
@@ -73,28 +76,55 @@
 
     <!--show list-->
     <!--large grid UI-->
-    <include
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
+        android:id="@+id/rvBookListLargeUI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        tools:itemCount="10"
+        tools:listitem="@layout/view_holder_book" />
+
+   <!-- <include
         android:visibility="gone"
         android:id="@+id/vpBookListLargeUI"
         layout="@layout/view_pod_book_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_medium_2" />
+        android:layout_marginTop="@dimen/margin_medium_2" />-->
     <!--small grid UI-->
-    <include
+    <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
+        android:id="@+id/rvBookListSmallUI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        tools:itemCount="10"
+        tools:listitem="@layout/view_holder_book" />
+
+  <!--  <include
         android:visibility="gone"
         android:id="@+id/vpBookListSmallUI"
         layout="@layout/view_pod_book_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_medium_2" />
+        android:layout_marginTop="@dimen/margin_medium_2" />-->
     <!--list UI-->
-    <include
+    <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
+        android:id="@+id/rvBookListUI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        tools:itemCount="10"
+        tools:listitem="@layout/view_holder_list_view_type_book" />
+   <!-- <include
         android:visibility="gone"
         android:id="@+id/vpBookListUI"
         layout="@layout/view_pod_book_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_medium_2" />
+        android:layout_marginTop="@dimen/margin_medium_2" />-->
 
 </com.padcmyanmar.ttm.thelibraryapp.viewpods.FilterAndSortBookListViewPod>

@@ -59,7 +59,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.ShelvesListActivity"
+            android:name=".activities.ShelvesListDetailActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
