@@ -1,10 +1,13 @@
 package com.padcmyanmar.ttm.thelibraryapp.data.models
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.padcmyanmar.ttm.thelibraryapp.data.vos.BooksListVO
 import com.padcmyanmar.ttm.thelibraryapp.data.vos.CategoryBooksListVO
+import com.padcmyanmar.ttm.thelibraryapp.data.vos.GoogleBookVO
 import com.padcmyanmar.ttm.thelibraryapp.data.vos.ShelfVO
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 object TheLibraryAppModelImpl:BaseModel(),TheLibraryAppModel {
@@ -125,6 +128,44 @@ object TheLibraryAppModelImpl:BaseModel(),TheLibraryAppModel {
                 {
                     onFailure(it.localizedMessage ?: "")
                 })
+    }
+
+    override fun getGoogleBooksList(query: String): Observable<List<BooksListVO>> {
+        return mTheLibraryGoogleApi.googleBooksList(q = query)
+            .map {
+
+               var booksVOList :ArrayList<BooksListVO> = arrayListOf()
+                it.items?.let {googleBooksVOList->
+                    for (i in googleBooksVOList.indices){
+
+                        var booksListVO:BooksListVO? = BooksListVO(
+                            i,
+                            i,
+                            googleBooksVOList[i].volumeInfo?.categories?.joinToString(","),
+                            googleBooksVOList[i].volumeInfo?.authors?.joinToString(","),
+                            googleBooksVOList[i].volumeInfo?.imageLinks?.smallThumbnail,
+                            60,
+                           80,
+                            "",
+                            "",
+                            "",
+                            googleBooksVOList[i].volumeInfo?.publishedDate,
+                            googleBooksVOList[i].volumeInfo?.description,
+                            "0.0",
+                           "",
+                            googleBooksVOList[i].volumeInfo?.publisher,
+                            googleBooksVOList[i].volumeInfo?.title,
+                            googleBooksVOList[i].volumeInfo?.publishedDate
+                        )
+
+                        booksListVO?.let { it1 -> booksVOList.add(it1) }
+                    }
+                }
+                booksVOList ?: listOf()
+               // it.items ?: listOf()
+            }
+            .onErrorResumeNext { Observable.just(listOf()) }
+            .subscribeOn(Schedulers.io())
     }
 
     override fun filterByCategory(categoryName:String): List<BooksListVO> {

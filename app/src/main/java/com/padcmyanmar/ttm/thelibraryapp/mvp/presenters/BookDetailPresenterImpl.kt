@@ -24,9 +24,11 @@ class BookDetailPresenterImpl:ViewModel(),BookDetailPresenter {
         mView?.callRatingAndReviewPage()
     }
 
-    override fun callAboutPage() {
-        mView?.callAboutPage()
+    override fun callAboutPage(description: String?) {
+        mView?.callAboutPage(description)
     }
+
+
 
     override fun callBack() {
         mView?.callBack()

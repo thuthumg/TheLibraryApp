@@ -1,5 +1,6 @@
 package com.padcmyanmar.ttm.thelibraryapp.network
 
+import com.padcmyanmar.ttm.thelibraryapp.network.responses.GoogleBooksListResponse
 import com.padcmyanmar.ttm.thelibraryapp.network.responses.ListJsonResponse
 import com.padcmyanmar.ttm.thelibraryapp.network.responses.OverviewResponse
 import com.padcmyanmar.ttm.thelibraryapp.utils.*
@@ -25,4 +26,8 @@ interface TheLibraryApi {
 //      @Query(PARAM_PUBLISHED_DATE) publishedDate: String,
 
 
+    @GET(API_GET_VOLUMES)
+    fun googleBooksList(
+        @Query(PARAM_Q) q:String
+    ):Observable<GoogleBooksListResponse>
 }

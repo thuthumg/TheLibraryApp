@@ -71,9 +71,7 @@ class EachCategoryBookListPresenterImpl:ViewModel(),EachCategoryBookListPresente
 
     private fun saveReadBookFunc(mBooksListVO: BooksListVO?) {
 
-        Log.d("eachcategory","presenter 1 ${mBooksListVO?.title}")
-
-        mBooksListVO?.let { paramBookVO->
+          mBooksListVO?.let { paramBookVO->
             var insertFlag:Boolean = false
             if(mBookListVOOfflineData?.size != 0)
             {

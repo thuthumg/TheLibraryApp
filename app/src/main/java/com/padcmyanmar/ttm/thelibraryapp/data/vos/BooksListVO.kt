@@ -19,17 +19,17 @@ data class BooksListVO (
     @ColumnInfo(name = "category_name")
     var categoryName: String?,
 
-    @SerializedName("age_group")
-    @ColumnInfo(name = "age_group")
-    val ageGroup:String?,
-
-    @SerializedName("amazon_product_url")
-    @ColumnInfo(name = "amazon_product_url")
-    val amazonProductUrl:String?,
-
-    @SerializedName("article_chapter_link")
-    @ColumnInfo(name = "article_chapter_link")
-    val articleChapterLink:String?,
+//    @SerializedName("age_group")
+//    @ColumnInfo(name = "age_group")
+//    val ageGroup:String?,
+//
+//    @SerializedName("amazon_product_url")
+//    @ColumnInfo(name = "amazon_product_url")
+//    val amazonProductUrl:String?,
+//
+//    @SerializedName("article_chapter_link")
+//    @ColumnInfo(name = "article_chapter_link")
+//    val articleChapterLink:String?,
 
     @SerializedName("author")
     @ColumnInfo(name = "author")
@@ -67,9 +67,9 @@ data class BooksListVO (
     @ColumnInfo(name = "description")
     val description:String?,
 
-    @SerializedName("first_chapter_link")
+  /*  @SerializedName("first_chapter_link")
     @ColumnInfo(name = "first_chapter_link")
-    val firstChapterLink:String?,
+    val firstChapterLink:String?,*/
 
     @SerializedName("price")
     @ColumnInfo(name = "price")
@@ -92,4 +92,8 @@ data class BooksListVO (
     val updatedDate:String?
 
 
-)  : Serializable , CarouselModel()
+)  : Serializable , CarouselModel(){
+
+
+
+}

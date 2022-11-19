@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llGoogleBookItem"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_card_medium"
@@ -15,8 +16,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivBookCoverPhoto"
-            android:layout_width="85dp"
-            android:layout_height="100dp"
+            android:layout_width="60dp"
+            android:layout_height="85dp"
             android:scaleType="centerCrop"
             android:src="@drawable/sample_book_cover" />
 
@@ -30,6 +31,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/tvBookTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -40,6 +42,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tvAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"

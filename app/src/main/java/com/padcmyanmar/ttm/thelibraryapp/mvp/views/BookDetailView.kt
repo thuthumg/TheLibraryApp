@@ -5,7 +5,7 @@ import androidx.lifecycle.LifecycleOwner
 interface BookDetailView:BaseView {
 
    fun callRatingAndReviewPage()
-   fun callAboutPage()
+   fun callAboutPage(sDesc:String?)
    fun callBack()
 
 

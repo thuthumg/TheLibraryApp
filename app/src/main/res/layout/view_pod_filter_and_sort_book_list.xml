@@ -28,7 +28,7 @@
             android:layout_height="30dp"/>
 
         <HorizontalScrollView
-
+            android:layout_marginStart="@dimen/margin_small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none">
