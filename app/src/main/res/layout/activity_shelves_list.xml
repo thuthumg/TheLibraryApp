@@ -90,6 +90,7 @@ tools:context=".activities.ShelvesListDetailActivity">
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
         <include
+            android:layout_marginStart="@dimen/margin_card_medium"
             android:id="@+id/vpFilterAndSortBookList"
             layout="@layout/view_pod_filter_and_sort_book_list"
             android:layout_width="match_parent"

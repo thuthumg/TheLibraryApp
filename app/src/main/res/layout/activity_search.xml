@@ -32,6 +32,7 @@
                 app:endIconMode="clear_text">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSearchBooks"
                     android:textSize="@dimen/text_regular_2x"
                     android:textStyle="bold"
                     android:textColor="@color/whiteDark10"
@@ -63,6 +64,8 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/llTab"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">

@@ -7,7 +7,7 @@ interface BookDetailPresenter:IBasePresenter {
     fun initView(view:BookDetailView)
 
     fun callRatingAndReviewPage()
-    fun callAboutPage()
+    fun callAboutPage(description: String?)
     fun callBack()
 
 }

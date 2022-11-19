@@ -28,7 +28,7 @@
                 android:paddingStart="@dimen/margin_small"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="@dimen/text_heading_1x"
+                android:textSize="@dimen/text_regular_3x"
                 android:gravity="center"
                 android:text="About Oranges Are Not the On......"
                 android:layout_width="match_parent"
@@ -38,14 +38,15 @@
 
     </com.google.android.material.appbar.AppBarLayout>
     <androidx.core.widget.NestedScrollView
-        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_margin="@dimen/margin_card_medium_2"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
        <androidx.appcompat.widget.AppCompatTextView
+           android:id="@+id/tvDesc"
            android:text="The New York Times-bestselling author's Whitbread Prize-winning debut - Winterson has mastedred both comedy and tragedy in this rich little novel. (The Washington Post Book World. \n The New York Times-bestselling author's Whitbread Prize-winning debut - Winterson has mastedred both comedy and tragedy in this rich little novel. (The Washington Post Book World. \n The New York Times-bestselling author's Whitbread Prize-winning debut - Winterson has mastedred both comedy and tragedy in this rich little novel. (The Washington Post Book World. \n The New York Times-bestselling author's Whitbread Prize-winning debut - Winterson has mastedred both comedy and tragedy in this rich little novel. (The Washington Post Book World. \n The New York Times-bestselling author's Whitbread Prize-winning debut - Winterson has mastedred both comedy and tragedy in this rich little novel. (The Washington Post Book World."
            android:padding="@dimen/margin_medium"
-           android:textSize="@dimen/text_regular_3x"
+           android:textSize="@dimen/text_regular"
            android:textColor="@color/whiteDark10"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"/>
