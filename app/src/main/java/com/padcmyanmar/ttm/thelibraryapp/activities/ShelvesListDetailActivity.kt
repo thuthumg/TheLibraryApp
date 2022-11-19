@@ -23,6 +23,7 @@ import com.padcmyanmar.ttm.thelibraryapp.mvp.views.ShelvesListDetailView
 import com.padcmyanmar.ttm.thelibraryapp.viewpods.FilterAndSortBookListViewPod
 import kotlinx.android.synthetic.main.activity_shelves_list.*
 import kotlinx.android.synthetic.main.fragment_your_books.vpFilterAndSortBookList
+import kotlinx.android.synthetic.main.view_holder_shelves.view.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -101,6 +102,14 @@ class ShelvesListDetailActivity : AppCompatActivity(), ShelvesListDetailView{//,
        tvShelvesName.text = shelfName
 
 
+        when (readBooksListSortData?.size) {
+            0 -> { tvBookCount.text= "0 Book"}
+            1 -> { tvBookCount.text = "${readBooksListSortData.size} Book"}
+            else -> { tvBookCount.text = "${readBooksListSortData?.size} Books"}
+        }
+
+
+
     }
 
 
@@ -112,9 +121,15 @@ class ShelvesListDetailActivity : AppCompatActivity(), ShelvesListDetailView{//,
 
 
         mFilterAndSortBookListViewPod.setData(readBooksListSortData.sortedWith(compareBy {
-            LocalDateTime.parse(
-                it.updatedDate,
-                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+
+
+
+            it.updatedDate?.let {date->
+                LocalDateTime.parse(
+                    date,
+                    DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            }
+
         }))
     }
     override fun navigateToContextualMenuBottomSheetDialog(mBooksListVO: BooksListVO?) {
@@ -162,9 +177,14 @@ class ShelvesListDetailActivity : AppCompatActivity(), ShelvesListDetailView{//,
             else -> {
                 mFilterAndSortBookListViewPod.changeSortType(getString(R.string.lbl_recently_opened_type))
                 mFilterAndSortBookListViewPod.setDataFilterByCategory( readBooksListSortData.sortedWith(compareBy {
-                    LocalDateTime.parse(
-                        it.updatedDate,
-                        DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+
+                    it.updatedDate?.let {date->
+                        LocalDateTime.parse(
+                            date,
+                            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+                    }
+
+
                 }))
 
             }
@@ -254,6 +274,11 @@ class ShelvesListDetailActivity : AppCompatActivity(), ShelvesListDetailView{//,
     override fun deleteShelf(shelfId: Int) {
         mPresent.deleteShelfData(shelfId)
         finish()
+    }
+
+    override fun navigateToAddToShelvesList(mBooksListVO: BooksListVO?) {
+        startActivity( AddToShelvesActivity.newIntent(this, mBooksListVO))
+
     }
 
     override fun showShelvesListData(shelvesList: List<ShelfVO>) {

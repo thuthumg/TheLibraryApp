@@ -77,9 +77,14 @@ class YourBooksFragment : Fragment(),YourBooksView {
         readBooksListSortData = readBooksListVO
 
         mFilterAndSortBookListViewPod.setData(readBooksListVO.sortedWith(compareBy {
-            LocalDateTime.parse(
-                it.updatedDate,
-                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+
+            it.updatedDate?.let {date->
+                LocalDateTime.parse(
+                    date,
+                    DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            }
+
+
         }))
 
     }
@@ -130,9 +135,14 @@ class YourBooksFragment : Fragment(),YourBooksView {
             else -> {
                 mFilterAndSortBookListViewPod.changeSortType(getString(R.string.lbl_recently_opened_type))
                 mFilterAndSortBookListViewPod.setDataFilterByCategory( readBooksListSortData.sortedWith(compareBy {
-                    LocalDateTime.parse(
-                        it.updatedDate,
-                        DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+
+                    it.updatedDate?.let { date->
+                        LocalDateTime.parse(
+                            date,
+                            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+                    }
+
+
                 }))
 
             }

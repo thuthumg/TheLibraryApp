@@ -8,9 +8,12 @@ import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.padcmyanmar.ttm.thelibraryapp.R
 import com.padcmyanmar.ttm.thelibraryapp.data.vos.BooksListVO
+import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemDelegate
 import kotlinx.android.synthetic.main.bottom_sheet_dialog_book_item.*
 
-class BookItemBottomSheetDialogFragment() : BottomSheetDialogFragment() {
+class BookItemBottomSheetDialogFragment(
+    var bookItemDelegate: BookItemDelegate
+) : BottomSheetDialogFragment() {
 
     lateinit var booksListVO:BooksListVO
 
@@ -34,7 +37,15 @@ class BookItemBottomSheetDialogFragment() : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getParamData()
+        llAddToShelves.setOnClickListener {
+            dismiss()
+            bookItemDelegate.addToShelvesList(booksListVO)
+        }
 
+        llDeleteFromLibrary.setOnClickListener {
+            dismiss()
+            bookItemDelegate.deleteFromLibrary(booksListVO.id)
+        }
 
 
     }
@@ -52,6 +63,7 @@ class BookItemBottomSheetDialogFragment() : BottomSheetDialogFragment() {
                     context?.let {
                         Glide.with(it)
                             .load(booksListVO.bookImage)
+                            .placeholder(R.drawable.empty_shelf_book_bg)
                             .override(w, h)
                             .into(ivBookCover)
                     }

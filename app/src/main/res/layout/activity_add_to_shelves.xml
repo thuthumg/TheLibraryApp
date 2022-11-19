@@ -64,40 +64,30 @@ tools:context=".activities.AddToShelvesActivity">
         android:layout_height="wrap_content">
 
 
-
-
-        <com.google.android.material.button.MaterialButton
+        <LinearLayout
+            android:elevation="@dimen/margin_medium"
+            android:layout_margin="@dimen/margin_medium_2"
+            android:paddingBottom="@dimen/margin_card_medium_2"
+            android:paddingTop="@dimen/margin_card_medium_2"
+            android:paddingStart="@dimen/margin_large"
+            android:paddingEnd="@dimen/margin_large"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/custom_btn_bg"
+            android:layout_gravity="bottom|center_horizontal"
             android:id="@+id/mbtnConfirm"
-            android:paddingStart="@dimen/margin_medium_3"
-            android:paddingEnd="@dimen/margin_medium_3"
-            android:paddingBottom="@dimen/margin_medium"
-            android:paddingTop="@dimen/margin_medium"
             android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:text="Confirm"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_regular"
-            app:backgroundTint="@color/create_shelves_btn_color"
-            app:cornerRadius="@dimen/margin_medium_3"
-            app:iconGravity="textStart"
-            app:iconSize="@dimen/margin_medium_3" />
+            android:layout_height="wrap_content">
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:textSize="@dimen/text_regular"
+                android:textColor="@color/white"
+                android:text="Confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-<!--        <com.google.android.material.button.MaterialButton-->
-<!--            android:id="@+id/mbtnConfirm"-->
-<!--            android:paddingStart="@dimen/margin_medium_2"-->
-<!--            android:paddingEnd="@dimen/margin_medium_2"-->
-<!--            android:paddingBottom="@dimen/margin_medium"-->
-<!--            android:paddingTop="@dimen/margin_medium"-->
-<!--            android:textAllCaps="false"-->
-<!--            app:cornerRadius="@dimen/margin_medium"-->
-<!--            app:backgroundTint="@color/create_shelves_btn_color"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="@dimen/text_regular_2x"-->
-<!--            android:text="Confirm"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"/>-->
+        </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

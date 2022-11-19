@@ -11,9 +11,38 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_marginTop="@dimen/margin_medium"
+            android:id="@+id/llEmptyView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:padding="@dimen/margin_medium"
+                android:scaleType="centerCrop"
+                android:src="@drawable/read_book_empty"
+                android:layout_width="85dp"
+                android:layout_height="85dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNoShelves"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Let's find your next read"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_heading_1x"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
 
         <alirezat775.lib.carouselview.CarouselView
-            android:id="@+id/carousel_view"
+            android:id="@+id/carouselView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_xxlarge"

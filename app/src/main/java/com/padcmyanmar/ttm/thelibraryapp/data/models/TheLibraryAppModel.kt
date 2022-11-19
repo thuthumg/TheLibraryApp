@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import com.padcmyanmar.ttm.thelibraryapp.data.vos.BooksListVO
 import com.padcmyanmar.ttm.thelibraryapp.data.vos.CategoryBooksListVO
 import com.padcmyanmar.ttm.thelibraryapp.data.vos.ShelfVO
+import com.padcmyanmar.ttm.thelibraryapp.network.responses.ListJsonResponse
 
 interface TheLibraryAppModel {
 
@@ -20,6 +21,13 @@ interface TheLibraryAppModel {
     fun getReadBooksList(
         onFailure: (String) -> Unit
     ): LiveData<List<BooksListVO>>?
+
+    fun deleteFromLibrary(
+        bookId:Int,
+        onSuccess: (message: String) -> Unit,
+        onFailure: (String) -> Unit
+    )
+
 
     /*For Library Section*/
     fun filterByCategory(
@@ -55,5 +63,11 @@ interface TheLibraryAppModel {
         onFailure: (String) -> Unit
     )
 
+    /*For Each Category book list section*/
+    fun getList(
+        listName:String,
+        onSuccess: (List<BooksListVO>) -> Unit,
+        onFailure: (String) -> Unit
+    )
 
 }

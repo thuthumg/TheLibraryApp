@@ -22,7 +22,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivBookCover"
                 android:scaleType="centerCrop"
-                android:src="@drawable/sample_book_cover_two"
+                android:src="@drawable/empty_book_icon"
                 android:layout_width="60dp"
                 android:layout_height="100dp"/>
         </com.google.android.material.card.MaterialCardView>
@@ -84,6 +84,7 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/llDeleteFromLibrary"
         android:paddingTop="@dimen/margin_small"
         android:paddingEnd="@dimen/margin_medium_2"
         android:paddingStart="@dimen/margin_medium_2"

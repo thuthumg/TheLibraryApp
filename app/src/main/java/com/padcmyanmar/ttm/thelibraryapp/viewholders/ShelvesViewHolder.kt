@@ -33,8 +33,8 @@ class ShelvesViewHolder(
 
         when (shelfVOParam.booksList?.size) {
             0 -> {itemView.tvBookCount.text = "0 Book"
-            imgListArray.add("sample")
-                imgListArray.add("sample")
+            imgListArray.add("empty view")
+            imgListArray.add("empty view")
             }
             1 -> {itemView.tvBookCount.text = "${shelfVOParam.booksList?.size} Book"}
             else -> {itemView.tvBookCount.text = "${shelfVOParam.booksList?.size} Books"}

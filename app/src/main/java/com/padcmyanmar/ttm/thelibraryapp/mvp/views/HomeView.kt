@@ -7,9 +7,12 @@ interface HomeView : BaseView{
 
     fun showCategoryBooksList(categoryBooksList: List<CategoryBooksListVO>)
     fun navigateToContextualMenuBottomSheetDialog(mBooksListVO: BooksListVO?)
-    fun navigateToBooksMorePage()
+    fun navigateToBooksMorePage(categoryName:String,categoryId:Int)
     fun navigateToBookDetailPage(mBooksListVO: BooksListVO?)
 
     fun showReadBooksList(readBooksListVO: List<BooksListVO>)
+
+
+    fun navigateToAddToShelvesList(mBooksListVO: BooksListVO?)
 
 }

@@ -43,6 +43,12 @@ class SortedBookItemBottomSheetDialogFragment(
             bookItemDelegate.addToShelvesList(mBooksListVO)
            // startActivity(Intent(context,AddToShelvesActivity::class.java))
         }
+
+        llDeleteFromLibrary.setOnClickListener {
+            dismiss()
+            bookItemDelegate.deleteFromLibrary(mBooksListVO.id)
+        }
+
     }
 
 
@@ -61,6 +67,7 @@ class SortedBookItemBottomSheetDialogFragment(
                     context?.let {
                         Glide.with(it)
                             .load(mBooksListVO.bookImage)
+                            .placeholder(R.drawable.empty_shelf_book_bg)
                             .override(w, h)
                             .into(ivBookCover)
                     }

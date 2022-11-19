@@ -1,13 +1,15 @@
 package com.padcmyanmar.ttm.thelibraryapp.adapters
 
 import android.annotation.SuppressLint
-import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.padcmyanmar.ttm.thelibraryapp.R
 import com.padcmyanmar.ttm.thelibraryapp.viewholders.BooksCoverImageListViewHolder
-import kotlin.random.Random
+import kotlinx.android.synthetic.main.view_holder_book.view.*
+import kotlinx.android.synthetic.main.view_holder_book_cover_list.view.*
 
 
 class BooksCoverImageListAdapter: RecyclerView.Adapter<BooksCoverImageListViewHolder>() {
@@ -28,6 +30,23 @@ class BooksCoverImageListAdapter: RecyclerView.Adapter<BooksCoverImageListViewHo
         if(mImgList.isNotEmpty()){
             holder.bindData(mImgList[position])
         }
+
+        if(mImgList.size-1 == position){
+            var  layoutParams:ViewGroup.MarginLayoutParams =
+                holder.itemView.cvShelfBookCover.layoutParams as  (ViewGroup.MarginLayoutParams)
+
+            layoutParams.setMargins(0,20,0,0)
+            holder.itemView.cvShelfBookCover.requestLayout()
+        }else{
+            var  layoutParams:ViewGroup.MarginLayoutParams =
+                holder.itemView.cvShelfBookCover.layoutParams as  (ViewGroup.MarginLayoutParams)
+
+            layoutParams.setMargins(0,0,0,0)
+            holder.itemView.cvShelfBookCover.requestLayout()
+        }
+
+
+
 
 //        holder.itemView.elevation = 30.0f * position
 //        val rand = Random
@@ -54,3 +73,4 @@ class BooksCoverImageListAdapter: RecyclerView.Adapter<BooksCoverImageListViewHo
 
 
 }
+

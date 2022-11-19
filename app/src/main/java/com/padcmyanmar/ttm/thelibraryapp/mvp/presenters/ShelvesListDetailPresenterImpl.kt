@@ -53,7 +53,7 @@ class ShelvesListDetailPresenterImpl:ViewModel(),ShelvesListDetailPresenter{
         mView?.navigateToContextualMenuBottomSheetDialog(mBooksListVO)
     }
 
-    override fun callMoreFunc() {
+    override fun callMoreFunc(listName: String?, listId: Int?) {
 
     }
 
@@ -62,11 +62,15 @@ class ShelvesListDetailPresenterImpl:ViewModel(),ShelvesListDetailPresenter{
     }
 
     override fun addToShelvesList(mBooksListVO: BooksListVO) {
-
+        mView?.navigateToAddToShelvesList(mBooksListVO)
     }
 
-    override fun deleteFromLibrary() {
-
+    override fun deleteFromLibrary(id: Int) {
+        mTheLibraryAppModel.deleteFromLibrary(id, onSuccess = {
+            mView?.showError("successfully deleted!")
+        }, onFailure = {
+            mView?.showError(it)
+        })
     }
 
     override fun aboutThisBook() {

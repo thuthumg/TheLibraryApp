@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView
+    android:id="@+id/cvShelfBookCover"
     app:strokeWidth="2dp"
     app:strokeColor="@color/white"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -13,7 +14,7 @@
         android:id="@+id/ivBookCoverPhotoInShelf"
         android:layout_width="70dp"
         android:layout_height="100dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         android:src="@drawable/sample_book_cover" />
 
 </com.google.android.material.card.MaterialCardView>

@@ -2,6 +2,7 @@ package com.padcmyanmar.ttm.thelibraryapp.fragments
 
 import alirezat775.lib.carouselview.Carousel
 import alirezat775.lib.carouselview.CarouselListener
+import alirezat775.lib.carouselview.CarouselModel
 import alirezat775.lib.carouselview.CarouselView
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -16,11 +17,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayout
 import com.padcmyanmar.ttm.thelibraryapp.R
+import com.padcmyanmar.ttm.thelibraryapp.activities.AddToShelvesActivity
 import com.padcmyanmar.ttm.thelibraryapp.activities.BooksAndAudioDetailViewActivity
 import com.padcmyanmar.ttm.thelibraryapp.activities.EachCategoryBookListActivity
 import com.padcmyanmar.ttm.thelibraryapp.adapters.EBooksAndAudioBooksListAdapter
 import com.padcmyanmar.ttm.thelibraryapp.adapters.ReadBooksListCarouselAdapter
-import com.padcmyanmar.ttm.thelibraryapp.adapters.SampleModel
 
 import com.padcmyanmar.ttm.thelibraryapp.bottomSheetDialog.BookItemBottomSheetDialogFragment
 import com.padcmyanmar.ttm.thelibraryapp.data.vos.BooksListVO
@@ -129,7 +130,7 @@ class HomeFragment : Fragment(), HomeView{
 
       //  bookItemDelegate?.let {
             val adapter = ReadBooksListCarouselAdapter(mPresenter)
-            carousel = Carousel(context as AppCompatActivity, carousel_view, adapter)
+            carousel = Carousel(context as AppCompatActivity, carouselView, adapter)
             carousel.setOrientation(CarouselView.HORIZONTAL, false)
             // carousel.autoScroll(true, 5000, true)
 
@@ -146,29 +147,13 @@ class HomeFragment : Fragment(), HomeView{
 
     }
 
-//
-//    override fun callContextualMenuBottomSheetDialogFun() {
-//        val customButtonSheet = BookItemBottomSheetDialogFragment()
-//        customButtonSheet.show(requireActivity().supportFragmentManager,"modalSheetDialog")
-//
-//    }
-//
-//    override fun callMoreFunc() {
-//        startActivity(Intent(context, EachCategoryBookListActivity::class.java))
-//
-//    }
-//
-//    override fun callBookDetailPage() {
-//        startActivity(Intent(context, BooksAndAudioDetailViewActivity::class.java))
-//    }
-
     override fun showCategoryBooksList(categoryBooksList: List<CategoryBooksListVO>) {
         mCategoryBooksList = categoryBooksList
         mEBooksAndAudioBooksListAdapter.setNewData(categoryBooksList)
     }
 
     override fun navigateToContextualMenuBottomSheetDialog(mBooksListVO: BooksListVO?) {
-        val customButtonSheet = BookItemBottomSheetDialogFragment()
+        val customButtonSheet = BookItemBottomSheetDialogFragment(mPresenter)
         var args: Bundle = Bundle()
         args.putSerializable("booksItemParamData", mBooksListVO)
         customButtonSheet.arguments = args
@@ -176,9 +161,10 @@ class HomeFragment : Fragment(), HomeView{
 
     }
 
-    override fun navigateToBooksMorePage() {
-        startActivity(Intent(context, EachCategoryBookListActivity::class.java))
+    override fun navigateToBooksMorePage(categoryName: String,categoryId:Int) {
+        startActivity(context?.let { EachCategoryBookListActivity.newIntent(it,categoryName,categoryId) })
     }
+
 
     override fun navigateToBookDetailPage(mBooksListVO: BooksListVO?) {
 
@@ -193,10 +179,43 @@ class HomeFragment : Fragment(), HomeView{
 
     override fun showReadBooksList(readBooksListVO: List<BooksListVO>) {
 
-          readBooksListVO.forEach {
-            carousel.add(it)
+        if(readBooksListVO.isEmpty())
+        {
+            llEmptyView.visibility = View.VISIBLE
+            carouselView.visibility = View.GONE
+        }else{
+            llEmptyView.visibility = View.GONE
+            carouselView.visibility = View.VISIBLE
+
+            var readMutableList:MutableList<CarouselModel> = arrayListOf()
+            readBooksListVO.forEach {
+                readMutableList.add(it)
+                // carousel.add(it)
+            }
+
+            carousel.addAll(readMutableList)
         }
 
+
+
+    }
+
+    override fun navigateToAddToShelvesList(mBooksListVO: BooksListVO?) {
+
+//        outerLoop@ mCategoryBooksList?.forEach {
+//            it.books?.forEach { booksVO->
+//                if(booksVO.id == mBooksListVO?.id)
+//                {
+//                    mBooksListVO?.categoryName = it.listName
+//                    mBooksListVO?.categoryId = it.listId
+//
+//                    break@outerLoop
+//                }
+//            }
+//        }
+
+
+        startActivity(context?.let { AddToShelvesActivity.newIntent(it, mBooksListVO) })
 
     }
 

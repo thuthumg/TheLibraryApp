@@ -23,6 +23,7 @@ class ReadBooksListCarouselAdapter(var bookItemDelegate:BookItemDelegate) :  Car
             mBooksListVO.bookImageWidth?.let { it1 ->
                 Glide.with((holder as ReadBooksListCarouselViewHolder).itemView.context)
                     .load(mBooksListVO.bookImage)
+                    .placeholder(R.drawable.empty_book_icon)
                     .override(it1, it)
                     .into((holder as ReadBooksListCarouselViewHolder).itemView.ivCarouselReadBook)
             }
@@ -35,7 +36,6 @@ class ReadBooksListCarouselAdapter(var bookItemDelegate:BookItemDelegate) :  Car
     }
 
 
-
     inner class ReadBooksListCarouselViewHolder(var bookItemDelegate:BookItemDelegate, itemView: View):CarouselViewHolder(itemView){
 
         init {
@@ -44,7 +44,9 @@ class ReadBooksListCarouselAdapter(var bookItemDelegate:BookItemDelegate) :  Car
             }
 
             itemView.ivContextualMenuForReadBook.setOnClickListener {
-                bookItemDelegate.callContextualMenuBottomSheetDialogFun(mBooksListVO)
+              //  bookItemDelegate.callContextualMenuBottomSheetDialogFun(mBooksListVO)
+
+                bookItemDelegate.callContextualMenuBottomSheetDialogFun(getItems()[adapterPosition] as BooksListVO)
             }
         }
     }

@@ -3,6 +3,7 @@ package com.padcmyanmar.ttm.thelibraryapp.viewholders
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.padcmyanmar.ttm.thelibraryapp.R
 import com.padcmyanmar.ttm.thelibraryapp.data.vos.BooksListVO
 import com.padcmyanmar.ttm.thelibraryapp.delegates.BookItemDelegate
 import kotlinx.android.synthetic.main.view_holder_book.view.*
@@ -39,6 +40,7 @@ class LargeBooksListViewHolder  (var bookItemDelegate: BookItemDelegate, itemVie
             booksListVO.bookImageWidth?.let { w ->
                 Glide.with(itemView.context)
                     .load(booksListVO.bookImage)
+                    .placeholder(R.drawable.empty_book_icon)
                     .override(w, h)
                     .into(itemView.ivBookCoverPhoto)
             }

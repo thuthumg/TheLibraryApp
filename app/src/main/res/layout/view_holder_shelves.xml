@@ -1,65 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
+    android:background="@color/white"
     android:paddingStart="@dimen/margin_card_medium_2"
-    android:paddingTop="@dimen/margin_card_medium_2"
     android:paddingEnd="@dimen/margin_card_medium_2"
-
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-
-<!--        android:id="@+id/rvBooksCoverImgList"-->
-<!--        tools:itemCount="5"-->
-<!--        tools:listitem="@layout/view_holder_book_cover_list"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"/>-->
-
-    <include
-        android:id="@+id/vpBooksCoverImgList"
-        layout="@layout/view_pod_overlap_recyclerview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-
-
-
+    android:layout_height="80dp">
     <LinearLayout
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content">
-        <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvShelfName"
-        android:padding="@dimen/margin_medium"
-        android:text="10 Interaction Design Books to Read"
-        android:textSize="@dimen/text_regular_2x"
-        android:textStyle="bold"
-        android:textColor="@color/black"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/margin_card_medium_2"
+        android:paddingTop="@dimen/margin_card_medium_2"
+        android:paddingEnd="@dimen/margin_card_medium_2"
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvBookCount"
-            android:paddingStart="@dimen/margin_medium"
-            android:text="3 books"
-            android:textSize="@dimen/text_regular_2x"
-            android:textStyle="bold"
-            android:textColor="@color/whiteDark10"
-            android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:layout_weight="1"
+            android:id="@+id/vpBooksCoverImgList"
+            layout="@layout/view_pod_overlap_recyclerview"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvShelfName"
+                android:padding="@dimen/margin_medium"
+                android:text="10 Interaction Design Books to Read"
+                android:textSize="@dimen/text_regular_2x"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBookCount"
+                android:paddingStart="@dimen/margin_medium"
+                android:text="3 books"
+                android:textSize="@dimen/text_regular_2x"
+                android:textStyle="bold"
+                android:textColor="@color/whiteDark10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivGoToShelvesList"
+            android:padding="@dimen/margin_medium"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+
+
+
     </LinearLayout>
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivGoToShelvesList"
-        android:padding="@dimen/margin_medium"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
-        android:layout_width="50dp"
-        android:layout_height="50dp"/>
 
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="-10dp"
+        android:background="@color/whiteDark5" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/white" />
 
 </LinearLayout>

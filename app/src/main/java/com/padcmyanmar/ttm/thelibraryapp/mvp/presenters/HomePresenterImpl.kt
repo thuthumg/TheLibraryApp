@@ -19,6 +19,7 @@ class HomePresenterImpl : ViewModel(),HomePresenter {
     //States
     private var mCategoryBooksList: List<CategoryBooksListVO>? = listOf()
 
+    private var mBookListVOList: List<BooksListVO>? = listOf()
     override fun initView(view: HomeView) {
        mView = view
     }
@@ -39,6 +40,7 @@ class HomePresenterImpl : ViewModel(),HomePresenter {
         mTheLibraryAppModel.getReadBooksList {
             mView?.showError(it)
         }?.observe(owner){
+            mBookListVOList = it
             mView?.showReadBooksList(it.reversed())
         }
 
@@ -48,25 +50,60 @@ class HomePresenterImpl : ViewModel(),HomePresenter {
        mView?.navigateToContextualMenuBottomSheetDialog(mBooksListVO)
     }
 
-    override fun callMoreFunc() {
-        mView?.navigateToBooksMorePage()
+    override fun callMoreFunc(listName: String?, listId: Int?) {
+        listName?.let { listId?.let { it1 -> mView?.navigateToBooksMorePage(it, it1) } }
     }
 
     override fun callBookDetailPage(mBooksListVO: BooksListVO?) {
-        mBooksListVO?.let {
-            mTheLibraryAppModel.insertReadBook(
-                it)
+
+        mBooksListVO?.let { paramBookVO->
+            var insertFlag:Boolean = false
+            if(mBookListVOList?.size != 0)
+            {
+
+                outerLoop@ for (i in mBookListVOList?.indices!!){
+                    if(mBookListVOList!![i].categoryId == mBooksListVO.categoryId &&
+                        mBookListVOList!![i].title == mBooksListVO.title &&
+                        mBookListVOList!![i].author == mBooksListVO.author)
+                    {
+                        insertFlag = false
+                        break@outerLoop
+
+                    }else{
+
+                        insertFlag = true
+                    }
+                }
+
+                if(insertFlag)
+                {
+                    mTheLibraryAppModel.insertReadBook(
+                        paramBookVO)
+                }
+
+            }else{
+                mTheLibraryAppModel.insertReadBook(
+                    paramBookVO)
+            }
+
+
+
         }
 
        mView?.navigateToBookDetailPage(mBooksListVO)
     }
 
     override fun addToShelvesList(mBooksListVO: BooksListVO) {
-       //
+        mView?.navigateToAddToShelvesList(mBooksListVO)
     }
 
-    override fun deleteFromLibrary() {
+    override fun deleteFromLibrary(id: Int) {
        //
+        mTheLibraryAppModel.deleteFromLibrary(id, onSuccess = {
+               mView?.showError("successfully deleted!")
+        }, onFailure = {
+            mView?.showError(it)
+        })
     }
 
     override fun aboutThisBook() {

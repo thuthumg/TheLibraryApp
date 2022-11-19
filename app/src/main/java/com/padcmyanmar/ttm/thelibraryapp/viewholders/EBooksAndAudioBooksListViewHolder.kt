@@ -18,7 +18,7 @@ class EBooksAndAudioBooksListViewHolder(var bookItemDelegate: BookItemDelegate, 
 
     init {
         itemView.llMore.setOnClickListener{
-            bookItemDelegate.callMoreFunc()
+            bookItemDelegate.callMoreFunc(mCategoryBooksListVO?.listName,mCategoryBooksListVO?.listId)
         }
 
     }

@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
@@ -97,9 +98,9 @@ class AddToShelvesActivity : AppCompatActivity(), AddToShelvesListView {
         if(shelvesList.isNotEmpty()) {
             mShelfVOList = shelvesList
             mAddToShelvesListAdapter.setData(shelvesList)
-            mbtnConfirm.isEnabled = true
+            mbtnConfirm.visibility = View.VISIBLE
         }else{
-            mbtnConfirm.isEnabled = false
+            mbtnConfirm.visibility = View.GONE
         }
     }
 

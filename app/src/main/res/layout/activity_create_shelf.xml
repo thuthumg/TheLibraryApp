@@ -24,7 +24,7 @@ tools:context=".activities.CreateShelfActivity">
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
         <androidx.appcompat.widget.AppCompatTextView
-            android:textColor="@color/whiteDark10"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="@dimen/text_regular_3x"
             android:text="Create Shelf"
@@ -52,6 +52,7 @@ tools:context=".activities.CreateShelfActivity">
         app:endIconMode="clear_text">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:inputType="text"
             android:imeOptions="actionDone"
             android:id="@+id/txtInputEditTextShelf"
             android:layout_width="match_parent"
@@ -63,30 +64,52 @@ tools:context=".activities.CreateShelfActivity">
             android:textSize="@dimen/text_regular_3x" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-
-    <androidx.cardview.widget.CardView
+    <LinearLayout
+        android:elevation="@dimen/margin_medium"
+        android:layout_margin="@dimen/margin_medium_2"
+        android:paddingBottom="@dimen/margin_card_medium_2"
+        android:paddingTop="@dimen/margin_card_medium_2"
+        android:paddingStart="@dimen/margin_large"
+        android:paddingEnd="@dimen/margin_large"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@drawable/custom_btn_bg"
         android:layout_gravity="bottom|center_horizontal"
         android:id="@+id/cvDone"
-        android:layout_margin="@dimen/margin_medium"
-        android:clipToPadding="true"
-        app:cardCornerRadius="10dp"
-        app:cardBackgroundColor="@color/create_shelves_btn_color"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content">
-        <androidx.appcompat.widget.AppCompatTextView
 
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:layout_gravity="center"
-            android:text="Done"
+        <androidx.appcompat.widget.AppCompatTextView
             android:textSize="@dimen/text_regular"
             android:textColor="@color/white"
+            android:text="Done"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-    </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:layout_gravity="bottom|center_horizontal"-->
+<!--        android:id="@+id/cvDone"-->
+<!--        android:layout_margin="@dimen/margin_medium"-->
+<!--        android:clipToPadding="true"-->
+<!--        app:cardCornerRadius="10dp"-->
+<!--        app:cardBackgroundColor="@color/create_shelves_btn_color"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content">-->
+<!--        <androidx.appcompat.widget.AppCompatTextView-->
+
+<!--            android:paddingStart="20dp"-->
+<!--            android:paddingEnd="20dp"-->
+<!--            android:paddingTop="10dp"-->
+<!--            android:paddingBottom="10dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:text="Done"-->
+<!--            android:textSize="@dimen/text_regular"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+<!--    </androidx.cardview.widget.CardView>-->
 </FrameLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

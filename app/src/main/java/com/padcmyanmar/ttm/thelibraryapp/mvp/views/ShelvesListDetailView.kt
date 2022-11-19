@@ -24,5 +24,7 @@ interface ShelvesListDetailView:BaseView {
 
     fun deleteShelf(shelfId:Int)
 
+    fun navigateToAddToShelvesList(mBooksListVO: BooksListVO?)
+
 
 }

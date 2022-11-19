@@ -15,6 +15,12 @@
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:visibility="gone">
+        
+        <androidx.appcompat.widget.AppCompatImageView
+            android:scaleType="centerCrop"
+            android:src="@drawable/empty_shelf_icon"
+            android:layout_width="150dp"
+            android:layout_height="150dp"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvNoShelves"
@@ -53,26 +59,42 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/white"
         android:gravity="center">
 
-        <com.google.android.material.button.MaterialButton
+
+        <LinearLayout
+            android:elevation="@dimen/margin_medium"
+            android:layout_margin="@dimen/margin_medium_2"
+            android:paddingBottom="@dimen/margin_card_medium_2"
+            android:paddingTop="@dimen/margin_card_medium_2"
+            android:paddingStart="@dimen/margin_medium_3"
+            android:paddingEnd="@dimen/margin_medium_3"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/custom_btn_bg"
             android:id="@+id/mBtnCreateNew"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:paddingEnd="@dimen/margin_medium_3"
-            android:text="Create New"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_regular_2x"
-            app:backgroundTint="@color/create_shelves_btn_color"
-            app:cornerRadius="@dimen/margin_medium_3"
-            app:icon="@drawable/ic_baseline_edit_24"
-            app:iconGravity="textStart"
-            app:iconSize="@dimen/margin_medium_3" />
-    </LinearLayout>
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:src="@drawable/ic_baseline_edit_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:textSize="@dimen/text_regular"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:textColor="@color/white"
+                android:text="Create New"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+ </LinearLayout>
 
 
 </RelativeLayout>

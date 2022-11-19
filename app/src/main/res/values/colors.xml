@@ -12,7 +12,8 @@
     <color name="colorPrimaryDark">#FEFFFF</color>
     <color name="colorPrimaryLight">#AEB6CA</color>
 <!--    <color name="colorAccent">#396CE8</color>-->
-    <color name="colorAccent">#2C72C1</color>
+    <color name="colorAccent">#007AC9</color>
+<!--    <color name="colorAccent">#2C72C1</color>-->
     <color name="colorSecondaryText">#4B587A</color>
     <color name="tv_count_color">#34466A</color>
 

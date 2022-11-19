@@ -11,12 +11,12 @@ import kotlinx.android.synthetic.main.view_holder_book_cover_list.view.*
 class BooksCoverImageListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bindData(s: String) {
-        Log.d("imagelist","check img list = $s")
-                Glide.with(itemView.context)
-                    .load(s)
-                    .placeholder(R.drawable.sample_book_cover_two)
-                    .override(100, 60)
-                    .into(itemView.ivBookCoverPhotoInShelf)
+
+        Glide.with(itemView.context)
+            .load(s)
+            .placeholder(R.drawable.empty_shelf_book_bg)
+            .override(40, 80)
+            .into(itemView.ivBookCoverPhotoInShelf)
 
     }
 }

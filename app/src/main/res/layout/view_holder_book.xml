@@ -15,9 +15,9 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivBookCoverPhoto"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="235dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/sample_book_cover" />
+            android:src="@drawable/empty_book_icon" />
 
         <!--audio-->
         <androidx.appcompat.widget.AppCompatImageView
@@ -77,6 +77,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:layout_marginTop="@dimen/margin_card_medium_2"
         android:id="@+id/tvBookTitle"
         android:fontFamily="sans-serif"
         android:layout_width="match_parent"

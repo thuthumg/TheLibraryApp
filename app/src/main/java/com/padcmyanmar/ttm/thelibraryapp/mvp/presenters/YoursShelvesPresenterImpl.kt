@@ -52,7 +52,7 @@ class YoursShelvesPresenterImpl:ViewModel(), YoursShelvesPresenter {
         mView?.navigateToContextualMenuBottomSheetDialog(mBooksListVO)
     }
 
-    override fun callMoreFunc() {
+    override fun callMoreFunc(listName: String?, listId: Int?) {
 
     }
 
@@ -64,12 +64,16 @@ class YoursShelvesPresenterImpl:ViewModel(), YoursShelvesPresenter {
 
     }
 
-    override fun deleteFromLibrary() {
-        TODO("Not yet implemented")
+    override fun deleteFromLibrary(id: Int) {
+        mTheLibraryAppModel.deleteFromLibrary(id, onSuccess = {
+            mView?.showError("successfully deleted!")
+        }, onFailure = {
+            mView?.showError(it)
+        })
     }
 
     override fun aboutThisBook() {
-        TODO("Not yet implemented")
+
     }
 
     override fun callbackViewAsFunc(checkedViewAsRadioButtonText: String) {

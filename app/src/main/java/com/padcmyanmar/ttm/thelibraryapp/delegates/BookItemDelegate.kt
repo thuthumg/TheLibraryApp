@@ -5,11 +5,11 @@ import com.padcmyanmar.ttm.thelibraryapp.data.vos.BooksListVO
 interface BookItemDelegate {
 
     fun callContextualMenuBottomSheetDialogFun(mBooksListVO: BooksListVO)
-    fun callMoreFunc()
+    fun callMoreFunc(listName: String?, listId: Int?)
     fun callBookDetailPage(mBooksListVO: BooksListVO?)
 
     fun addToShelvesList(mBooksListVO: BooksListVO)
-    fun deleteFromLibrary()
+    fun deleteFromLibrary(id: Int)
   //  fun downloadBook()
   //  fun removeDownload()
     fun aboutThisBook()

@@ -29,22 +29,26 @@ tools:context=".activities.ShelvesListDetailActivity">
             android:padding="@dimen/margin_small"
             android:layout_gravity="end"
             android:id="@+id/btnContextualMenu"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             app:srcCompat="@drawable/ic_more_gray_64" />
 
     </androidx.appcompat.widget.Toolbar>
 
 </com.google.android.material.appbar.AppBarLayout>
 <androidx.core.widget.NestedScrollView
+
     app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
+
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
         <androidx.appcompat.widget.AppCompatTextView
+            android:layout_marginStart="@dimen/margin_card_medium_2"
+            android:layout_marginEnd="@dimen/margin_card_medium_2"
             android:visibility="gone"
             android:padding="@dimen/margin_medium"
             tools:text="10 Interaction Design Books to Read"
@@ -56,6 +60,8 @@ tools:context=".activities.ShelvesListDetailActivity">
             android:layout_height="wrap_content"/>
 
         <androidx.appcompat.widget.AppCompatEditText
+            android:layout_marginStart="@dimen/margin_card_medium_2"
+            android:layout_marginEnd="@dimen/margin_card_medium_2"
             android:inputType="text"
             android:imeOptions="actionDone"
             android:visibility="gone"
@@ -70,6 +76,8 @@ tools:context=".activities.ShelvesListDetailActivity">
 
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:layout_marginStart="@dimen/margin_card_medium_2"
+            android:layout_marginEnd="@dimen/margin_card_medium_2"
             android:padding="@dimen/margin_medium"
             android:text="3 books"
             android:textSize="@dimen/text_regular"

@@ -42,6 +42,13 @@ object TheLibraryAppModelImpl:BaseModel(),TheLibraryAppModel {
     }
 
 
+    override fun deleteFromLibrary(
+        bookId: Int,onSuccess: (String) -> Unit, onFailure: (String) -> Unit) {
+
+        mTheLibraryAppDatabase?.readBooksDao()?.deleteReadBooksById(bookId)
+        onSuccess("success")
+    }
+
     /*For Shelf Section*/
     override fun insertShelf(
         shelfVO: ShelfVO,
@@ -88,6 +95,36 @@ object TheLibraryAppModelImpl:BaseModel(),TheLibraryAppModel {
 
         mTheLibraryAppDatabase?.shelvesDao()?.deleteByShelfId(shelvesId)
         onSuccess("success")
+    }
+
+    override fun getList(
+        listName: String,
+        onSuccess: (List<BooksListVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+
+        var booksListVOList:ArrayList<BooksListVO> = arrayListOf()
+
+        //network
+        mTheLibraryApi.getLists(list = listName)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({listJsonResponse->
+                listJsonResponse.results?.let {
+
+
+                    it.forEach { eachCategoryBooksListVO ->
+                        eachCategoryBooksListVO.bookDetails?.forEach {booksListVO->
+                            booksListVOList.add(booksListVO)
+                        }
+                    }
+
+                onSuccess(booksListVOList)
+                 }
+            },
+                {
+                    onFailure(it.localizedMessage ?: "")
+                })
     }
 
     override fun filterByCategory(categoryName:String): List<BooksListVO> {

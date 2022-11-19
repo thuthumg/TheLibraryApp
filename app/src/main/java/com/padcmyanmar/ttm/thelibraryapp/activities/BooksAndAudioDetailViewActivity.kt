@@ -4,13 +4,19 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.padcmyanmar.ttm.thelibraryapp.R
 import com.padcmyanmar.ttm.thelibraryapp.adapters.RatingReviewListAdapter
 import com.padcmyanmar.ttm.thelibraryapp.adapters.ShelvesListAdapter
 import com.padcmyanmar.ttm.thelibraryapp.data.vos.BooksListVO
+import com.padcmyanmar.ttm.thelibraryapp.mvp.presenters.BookDetailPresenter
+import com.padcmyanmar.ttm.thelibraryapp.mvp.presenters.BookDetailPresenterImpl
+import com.padcmyanmar.ttm.thelibraryapp.mvp.presenters.ShelvesListDetailPresenterImpl
+import com.padcmyanmar.ttm.thelibraryapp.mvp.views.BookDetailView
 import kotlinx.android.synthetic.main.activity_books_and_audio_detail_view.*
 import kotlinx.android.synthetic.main.activity_books_and_audio_detail_view.tvBookTitle
 import kotlinx.android.synthetic.main.fragment_your_shelves.*
@@ -18,7 +24,13 @@ import kotlinx.android.synthetic.main.view_holder_unread_books_list.*
 import kotlinx.android.synthetic.main.view_holder_unread_books_list.view.*
 import kotlin.random.Random
 
-class BooksAndAudioDetailViewActivity : AppCompatActivity() {
+class BooksAndAudioDetailViewActivity : AppCompatActivity(),BookDetailView {
+
+
+    //mPresenter
+    private lateinit var mPresent:BookDetailPresenter
+
+
 
     lateinit var mRatingReviewListAdapter: RatingReviewListAdapter
 
@@ -44,10 +56,18 @@ class BooksAndAudioDetailViewActivity : AppCompatActivity() {
         setContentView(R.layout.activity_books_and_audio_detail_view)
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        setUpPresenter()
         getIntentParam()
         setUpParamDataAtUI()
         setupRatingReviewListAdapter()
         clickListener()
+
+        mPresent.initView(this)
+    }
+
+    private fun setUpPresenter() {
+        mPresent = ViewModelProvider(this)[BookDetailPresenterImpl::class.java]
+        mPresent.initView(this)
     }
 
     private fun setUpParamDataAtUI() {
@@ -56,6 +76,7 @@ class BooksAndAudioDetailViewActivity : AppCompatActivity() {
             mBooksListVO?.bookImageWidth?.let { w ->
                 Glide.with(this)
                     .load(mBooksListVO?.bookImage)
+                    .placeholder(R.drawable.empty_book_icon)
                     .override(w, h)
                     .into(ivBookCover)
             }
@@ -73,15 +94,15 @@ class BooksAndAudioDetailViewActivity : AppCompatActivity() {
 
     private fun clickListener() {
         rlRatingAndReview.setOnClickListener {
-            startActivity(Intent(this,RatingsAndReviewsListActivity::class.java))
+           mPresent.callRatingAndReviewPage()
         }
 
         ivAboutBook.setOnClickListener {
-            startActivity(Intent(this,AboutBookActivity::class.java))
+            mPresent.callAboutPage()
         }
 
         btnBackBookDetail.setOnClickListener {
-            finish()
+           mPresent.callBack()
         }
     }
 
@@ -93,6 +114,24 @@ class BooksAndAudioDetailViewActivity : AppCompatActivity() {
             LinearLayoutManager.VERTICAL, false)
 
         rvRatingReviewList.isNestedScrollingEnabled = false
+    }
+
+    override fun callRatingAndReviewPage() {
+        startActivity(Intent(this,RatingsAndReviewsListActivity::class.java))
+
+    }
+
+    override fun callAboutPage() {
+        startActivity(Intent(this,AboutBookActivity::class.java))
+    }
+
+    override fun callBack() {
+        finish()
+
+    }
+
+    override fun showError(errorString: String) {
+      Toast.makeText(this,errorString,Toast.LENGTH_SHORT).show()
     }
 
 
