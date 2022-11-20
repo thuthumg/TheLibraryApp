@@ -61,7 +61,7 @@ tools:context=".activities.BooksAndAudioDetailViewActivity">
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivBookCover"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/sample_book_cover_two"
+                    android:src="@drawable/empty_book_icon"
                     android:layout_width="80dp"
                     android:layout_height="125dp"/>
             </com.google.android.material.card.MaterialCardView>
@@ -138,6 +138,7 @@ tools:context=".activities.BooksAndAudioDetailViewActivity">
                 android:layout_marginStart="@dimen/margin_medium"/>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/mBtnAddToWishlist"
                 app:iconGravity="textStart"
                 app:icon="@drawable/ic_bookmark_white_64"
                 android:layout_toEndOf="@id/mBtnFreeSample"

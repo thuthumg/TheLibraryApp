@@ -7,4 +7,6 @@ data class GoogleBooksListResponse(
 
     @SerializedName("items")
     var items: List<GoogleBookVO>?
-)
+){
+
+}
