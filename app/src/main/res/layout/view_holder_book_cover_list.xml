@@ -5,16 +5,16 @@
     app:strokeColor="@color/white"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="70dp"
+    android:layout_height="80dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="@dimen/margin_medium">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivBookCoverPhotoInShelf"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
-        android:scaleType="fitCenter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
         android:src="@drawable/sample_book_cover" />
 
 </com.google.android.material.card.MaterialCardView>

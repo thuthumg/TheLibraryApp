@@ -8,7 +8,7 @@
     android:paddingEnd="@dimen/margin_card_medium_2"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="80dp">
+    android:layout_height="wrap_content">
     <LinearLayout
         android:orientation="horizontal"
         android:paddingStart="@dimen/margin_card_medium_2"
@@ -42,8 +42,9 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvBookCount"
                 android:paddingStart="@dimen/margin_medium"
+                android:paddingBottom="@dimen/margin_medium"
                 android:text="3 books"
-                android:textSize="@dimen/text_regular_2x"
+                android:textSize="@dimen/text_small"
                 android:textStyle="bold"
                 android:textColor="@color/whiteDark10"
                 android:layout_width="match_parent"
