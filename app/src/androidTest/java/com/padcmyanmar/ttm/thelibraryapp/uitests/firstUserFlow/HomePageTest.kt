@@ -166,11 +166,11 @@ class HomePageTest {
         onView(withId(R.id.mBtnFreeSample))
             .check(matches(isDisplayed()))
         onView(withId(R.id.mBtnAddToWishlist))
-            .check(matches(isDisplayed()))
-        //onView(withId(R.id.rvRatingReviewList)).perform(scrollTo())
-        //.check(matches(isDisplayed()))
-        //onView((withId(R.id.lblPublish)) ).perform(scrollTo())
-        //.check(matches(isDisplayed()))
+            .check(matches(isDisplayed())).perform(scrollTo())
+        onView(withId(R.id.rvRatingReviewList)).perform(scrollTo())
+        .check(matches(isDisplayed()))
+        onView((withId(R.id.lblPublish)) ).perform(scrollTo())
+        .check(matches(isDisplayed()))
 
         onView(isRoot()).perform(ViewActions.pressBack())
     }

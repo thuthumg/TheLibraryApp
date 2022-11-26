@@ -2,11 +2,13 @@ package com.padcmyanmar.ttm.thelibraryapp.uitests.thirdUserFlow
 
 import android.content.Intent
 import android.view.View
+import androidx.test.espresso.Espresso.closeSoftKeyboard
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.RootMatchers
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -16,6 +18,7 @@ import com.padcmyanmar.ttm.thelibraryapp.R
 import com.padcmyanmar.ttm.thelibraryapp.activities.MainActivity
 import com.padcmyanmar.ttm.thelibraryapp.uitests.firstUserFlow.first
 import com.padcmyanmar.ttm.thelibraryapp.uitests.secondUserFlow.ShelvesTest
+import org.hamcrest.Matchers
 import org.junit.Before
 import org.junit.FixMethodOrder
 import org.junit.Test
@@ -43,12 +46,20 @@ class SearchTest {
             .check(matches(ViewMatchers.isDisplayed()))
         onView(withId(R.id.etSearchBooks)).perform(
             ViewActions.typeText(SEARCH_QUERY),
-            ViewActions.pressImeActionButton()
+            ViewActions.pressImeActionButton(),
+            ViewActions.closeSoftKeyboard()
         )
-        onView(withId(R.id.rvEbookGooglePlayBook))
-            .check(matches(ViewMatchers.isDisplayed()))
-        Thread.sleep(1000)
+        Thread.sleep(3000)
+        onView(ViewMatchers.withId(R.id.rvEbookGooglePlayBook))
+           .check(matches(ViewMatchers.isDisplayed()))
+
         onView((withText("Android For Dummies")))
+            .check(matches(ViewMatchers.isDisplayed()))
+
+        onView((withText("Android Security Internals")))
+            .check(matches(ViewMatchers.isDisplayed()))
+
+        onView((withText("Professional Android")))
             .check(matches(ViewMatchers.isDisplayed()))
     }
 

@@ -133,36 +133,14 @@ object TheLibraryAppModelImpl:BaseModel(),TheLibraryAppModel {
     override fun getGoogleBooksList(query: String): Observable<List<BooksListVO>> {
         return mTheLibraryGoogleApi.googleBooksList(q = query)
             .map {
-
                var booksVOList :ArrayList<BooksListVO> = arrayListOf()
                 it.items?.let {googleBooksVOList->
                     for (i in googleBooksVOList.indices){
-
-                        var booksListVO:BooksListVO? = BooksListVO(
-                            i,
-                            i,
-                            googleBooksVOList[i].volumeInfo?.categories?.joinToString(","),
-                            googleBooksVOList[i].volumeInfo?.authors?.joinToString(","),
-                            googleBooksVOList[i].volumeInfo?.imageLinks?.smallThumbnail,
-                            60,
-                           80,
-                            "",
-                            "",
-                            "",
-                            googleBooksVOList[i].volumeInfo?.publishedDate,
-                            googleBooksVOList[i].volumeInfo?.description,
-                            "0.0",
-                           "",
-                            googleBooksVOList[i].volumeInfo?.publisher,
-                            googleBooksVOList[i].volumeInfo?.title,
-                            googleBooksVOList[i].volumeInfo?.publishedDate
-                        )
-
-                        booksListVO?.let { it1 -> booksVOList.add(it1) }
+                        booksVOList.add(googleBooksVOList[i].convertToBookVO(i))
                     }
                 }
                 booksVOList ?: listOf()
-               // it.items ?: listOf()
+
             }
             .onErrorResumeNext { Observable.just(listOf()) }
             .subscribeOn(Schedulers.io())

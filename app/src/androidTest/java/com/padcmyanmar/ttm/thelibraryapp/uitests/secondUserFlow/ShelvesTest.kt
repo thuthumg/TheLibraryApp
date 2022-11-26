@@ -4,8 +4,7 @@ import android.content.Intent
 import android.view.View
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.scrollTo
+import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
@@ -18,11 +17,12 @@ import com.padcmyanmar.ttm.thelibraryapp.R
 import com.padcmyanmar.ttm.thelibraryapp.activities.MainActivity
 import com.padcmyanmar.ttm.thelibraryapp.data.vos.BooksListVO
 import com.padcmyanmar.ttm.thelibraryapp.uitests.firstUserFlow.*
-import com.padcmyanmar.ttm.thelibraryapp.viewholders.UnReadBooksViewHolder
 import com.padcmyanmar.ttm.thelibraryapp.viewholders.ViewTypeListBookListViewHolder
 import org.hamcrest.CoreMatchers
 import org.hamcrest.Matchers
+import org.hamcrest.Matchers.endsWith
 import org.hamcrest.core.AllOf
+import org.hamcrest.core.AllOf.allOf
 import org.junit.Before
 import org.junit.FixMethodOrder
 import org.junit.Test
@@ -41,7 +41,7 @@ class ShelvesTest {
     }
 
     @Test
-    fun testCase1ForShelfEmptyOrNot_CreateShelf(){
+    fun testCase1ForShelfEmptyOrNot_CreateShelf() {
 
         onView(withId(R.id.action_library))
             .perform(click())
@@ -66,23 +66,24 @@ class ShelvesTest {
             .check(matches(isDisplayed()))
         onView(first<View>(withText(TEST_SHELF_NAME)))
             .check(matches(isDisplayed()))
-        Thread.sleep(1000)
+
 
     }
 
     @Test
-    fun testCase2ForAddToShelves(){
+    fun testCase2ForAddToShelves() {
         onView(withId(R.id.action_library))
             .perform(click())
 
-        //
         onView(withText("Your books"))
             .perform(click())
 
         onView((withId(R.id.rvBookListUI))).perform(
-                    RecyclerViewActions.actionOnItemAtPosition<ViewTypeListBookListViewHolder>(
-                        0, clickChildViewWithId(
-                         R.id.ivContextualMenu))
+            RecyclerViewActions.actionOnItemAtPosition<ViewTypeListBookListViewHolder>(
+                0, clickChildViewWithId(
+                    R.id.ivContextualMenu
+                )
+            )
         )
         onView(first<View>(withId(R.id.tvBookTitle)))
             .check(matches(isDisplayed()))
@@ -100,6 +101,7 @@ class ShelvesTest {
         Thread.sleep(1000)
         onView(first<View>(withId(R.id.llAddToShelves)))
             .perform(click())
+       // Thread.sleep(3000)
         onView(withId(R.id.rvShelvesBooksItemList))
             .check(matches(isDisplayed()))
 
@@ -112,13 +114,12 @@ class ShelvesTest {
         onView(withId(R.id.mbtnConfirm))
             .perform(click())
 
-        Thread.sleep(1000)
+       // Thread.sleep(1000)
         onView(withText("Your shelves"))
             .perform(click())
-        Thread.sleep(1000)
+      //  Thread.sleep(1000)
         onView(withText("1 Book"))
             .check(matches(isDisplayed()))
-
 
 
         // second book add to shelf
@@ -127,7 +128,9 @@ class ShelvesTest {
         onView((withId(R.id.rvBookListUI))).perform(
             RecyclerViewActions.actionOnItemAtPosition<ViewTypeListBookListViewHolder>(
                 1, clickChildViewWithId(
-                    R.id.ivContextualMenu))
+                    R.id.ivContextualMenu
+                )
+            )
         )
 
         onView(first<View>(withId(R.id.tvBookTitle)))
@@ -165,7 +168,6 @@ class ShelvesTest {
             .check(matches(isDisplayed()))
 
 
-
 //third book add to shelf
 
         onView(withText("Your books"))
@@ -173,7 +175,9 @@ class ShelvesTest {
         onView((withId(R.id.rvBookListUI))).perform(
             RecyclerViewActions.actionOnItemAtPosition<ViewTypeListBookListViewHolder>(
                 2, clickChildViewWithId(
-                    R.id.ivContextualMenu))
+                    R.id.ivContextualMenu
+                )
+            )
         )
 
         onView(first<View>(withId(R.id.tvBookTitle)))
@@ -253,40 +257,56 @@ class ShelvesTest {
             .perform(click())
         onView(withText(TEST_SHELF_NAME))
             .check(matches(isDisplayed()))
-        Thread.sleep(1000)
-        onView(withText(R.id.llRenameShelf))
+        // Thread.sleep(1000)
+
+        onView(withText("Rename shelf"))
             .check(matches(isDisplayed()))
-        Thread.sleep(1000)
-        onView(withText(R.id.llDeleteShelf))
+
+        onView(withId(R.id.llRenameShelf))
             .check(matches(isDisplayed()))
-        onView(withText(R.id.llRenameShelf))
+        // Thread.sleep(1000)
+        onView(withId(R.id.llDeleteShelf))
+            .check(matches(isDisplayed()))
+        onView(withId(R.id.llRenameShelf))
             .perform(click())
+//        onView(withText("Rename shelf"))
+//            .perform(click())
         Thread.sleep(1000)
         onView(withId(R.id.etShelvesName))
             .check(matches(isDisplayed()))
-        onView(withText(TEST_SHELF_NAME))
-            .check(matches(isDisplayed()))
+//        onView(withText(TEST_SHELF_NAME))
+//            .check(matches(isDisplayed()))
+
+        onView(withId(R.id.etShelvesName))
+            .perform(clearText())
+
         onView(withId(R.id.etShelvesName)).perform(
             ViewActions.typeText(TEST_NEW_SHELF_NAME),
             ViewActions.pressImeActionButton()
         )
+
+
         Thread.sleep(1000)
-        onView(withText(TEST_NEW_SHELF_NAME))
-            .check(matches(isDisplayed()))
-
-
+//        onView(withText(TEST_NEW_SHELF_NAME))
+//            .check(matches(isDisplayed()))
+//        onView(withText(TEST_NEW_SHELF_NAME))
+//            .perform(closeSoftKeyboard())
+//        Thread.sleep(1000)
+//        onView(withId(R.id.rvShelvesList))
+//            .check(matches(isDisplayed()))
+//        onView(first<View>(withText(TEST_SHELF_NAME)))
+//            .check(matches(isDisplayed()))
 
         //for delete shelf
         onView(withId(R.id.btnContextualMenu))
             .perform(click())
-        onView(withText(R.id.llDeleteShelf))
+        onView(withId(R.id.llDeleteShelf))
             .perform(click())
         Thread.sleep(1000)
         onView(withId(R.id.llEmptyView))
             .check(matches(isDisplayed()))
 
     }
-
 
     private fun chipContainsText(text: String) {
         onView(
@@ -297,10 +317,9 @@ class ShelvesTest {
         ).perform(scrollTo()).check(ViewAssertions.matches(isDisplayed()))
     }
 
-    private fun chipCLickAction(bookVO: BooksListVO){
+    private fun chipCLickAction(bookVO: BooksListVO) {
 
-        if(!(bookVO.categoryName.equals(firstBookVO.categoryName)))
-        {
+        if (!(bookVO.categoryName.equals(firstBookVO.categoryName))) {
             Thread.sleep(3000)
             onView(
                 AllOf.allOf(
@@ -343,8 +362,8 @@ class ShelvesTest {
         onView(withId(R.id.rbSortByGroup))
             .perform(click())
 
-        when(s){
-            "title"->{
+        when (s) {
+            "title" -> {
                 onView((withId(R.id.rbRecentlyOpened)))
                     .check(matches(isChecked()))
                 onView((withId(R.id.rbTitle)))
@@ -359,7 +378,7 @@ class ShelvesTest {
                 onView(first<View>(withText(secondBookVO.title)))
                     .check(matches(isDisplayed()))
             }
-            "author"->{
+            "author" -> {
                 onView((withId(R.id.rbRecentlyOpened)))
                     .check(matches(isNotChecked()))
                 onView((withId(R.id.rbTitle)))
@@ -374,7 +393,7 @@ class ShelvesTest {
                 onView(first<View>(withText(firstBookVO.title)))
                     .check(matches(isDisplayed()))
             }
-            else-> {
+            else -> {
                 onView((withId(R.id.rbRecentlyOpened)))
                     .check(matches(isNotChecked()))
                 onView((withId(R.id.rbTitle)))
@@ -392,8 +411,6 @@ class ShelvesTest {
         }
 
 
-
-
     }
 
     private fun viewAsClickAction(s: String) {
@@ -402,8 +419,8 @@ class ShelvesTest {
         onView(withId(R.id.rbViewGroup))
             .perform(click())
 
-        when(s){
-            "large"->{
+        when (s) {
+            "large" -> {
                 onView((withId(R.id.rbList)))
                     .check(matches(isChecked()))
                 onView((withId(R.id.rbLargeGrid)))
@@ -416,7 +433,7 @@ class ShelvesTest {
                 onView((withId(R.id.rvBookListLargeUI)))
                     .check(matches(isDisplayed()))
             }
-            "small"->{
+            "small" -> {
                 onView((withId(R.id.rbList)))
                     .check(matches(isNotChecked()))
                 onView((withId(R.id.rbLargeGrid)))
@@ -430,7 +447,7 @@ class ShelvesTest {
                     .check(matches(isDisplayed()))
 
             }
-            else-> {
+            else -> {
                 onView((withId(R.id.rbList)))
                     .check(matches(isNotChecked()))
                 onView((withId(R.id.rbLargeGrid)))
@@ -447,10 +464,9 @@ class ShelvesTest {
         }
 
 
-
-
     }
-    companion object{
+
+    companion object {
         const val TEST_SHELF_NAME = "10 Interaction Design Books to Read"
         const val TEST_NEW_SHELF_NAME = "5 Interaction Design Books to Read"
     }

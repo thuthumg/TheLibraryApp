@@ -3,6 +3,7 @@ package com.padcmyanmar.ttm.thelibraryapp.uitests.firstUserFlow
 import android.view.View
 import android.widget.Checkable
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.annotation.NonNull
 import androidx.core.graphics.drawable.toBitmap
@@ -225,4 +226,5 @@ fun setChecked(checked: Boolean): ViewAction? {
         }
     }
 }
+
 

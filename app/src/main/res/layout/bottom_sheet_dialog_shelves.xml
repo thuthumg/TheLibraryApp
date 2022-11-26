@@ -49,7 +49,7 @@
             android:layout_marginStart="@dimen/margin_medium_2"
             android:textSize="@dimen/text_regular"
 
-
+            android:id="@+id/tvRenameShelf"
             android:layout_gravity="center_vertical"
             android:text="Rename shelf"
             android:layout_width="match_parent"

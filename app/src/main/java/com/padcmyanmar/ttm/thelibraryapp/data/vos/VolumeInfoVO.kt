@@ -5,20 +5,20 @@ import com.google.gson.annotations.SerializedName
 data class VolumeInfoVO(
 
     @SerializedName("title")
-    var title:String?,
+    var title: String?,
     @SerializedName("subtitle")
-    var subtitle:String?,
+    var subtitle: String?,
     @SerializedName("authors")
-    var authors:List<String>?,
+    var authors: List<String>?,
     @SerializedName("publisher")
-    var publisher:String?,
+    var publisher: String?,
     @SerializedName("publishedDate")
-    var publishedDate:String?,
+    var publishedDate: String?,
     @SerializedName("description")
-    var description:String?,
+    var description: String?,
     @SerializedName("categories")
-    var categories:List<String>?,
+    var categories: List<String>?,
     @SerializedName("imageLinks")
-    var imageLinks:ImageLinksVO?
+    var imageLinks: ImageLinksVO?
 
 )

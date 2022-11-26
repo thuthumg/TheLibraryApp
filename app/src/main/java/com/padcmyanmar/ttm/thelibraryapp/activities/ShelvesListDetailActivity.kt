@@ -1,6 +1,7 @@
 package com.padcmyanmar.ttm.thelibraryapp.activities
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -261,7 +263,12 @@ class ShelvesListDetailActivity : AppCompatActivity(), ShelvesListDetailView{//,
                 mShelfVO?.let { mPresent.saveShelfData(it) }
 
 
-                finish()
+                tvShelvesName.text =  etShelvesName.text.toString()
+                tvShelvesName.visibility = View.VISIBLE
+                etShelvesName.visibility = View.GONE
+                hideKeyboard()
+
+               // finish()
 
 
 
@@ -291,6 +298,13 @@ class ShelvesListDetailActivity : AppCompatActivity(), ShelvesListDetailView{//,
     override fun showReadBooksList(readBooksListVO: List<BooksListVO>) {
     }
 
+    fun Activity.hideKeyboard() {
+        hideKeyboard(currentFocus ?: View(this))
+    }
 
+    fun Context.hideKeyboard(view: View) {
+        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+    }
 
 }
